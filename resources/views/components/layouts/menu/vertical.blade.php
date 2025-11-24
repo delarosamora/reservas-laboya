@@ -11,6 +11,9 @@
     <li class="menu-item {{ request()->is('dashboard') ? 'active' : '' }}">
       <a class="menu-link" href="{{ route('dashboard') }}" wire:navigate>{{ __('Dashboard') }}</a>
     </li>
+    <li class="menu-item {{ request()->is('admin/members') ? 'active' : '' }}">
+      <a class="menu-link" href="{{ route('admin.members.index') }}" wire:navigate><i class="menu-icon tf-icons bx bx-group"></i> {{ __('Members') }}</a>
+    </li>
 
     <!-- Settings -->
     <li class="menu-item {{ request()->is('settings/*') ? 'active open' : '' }}">
