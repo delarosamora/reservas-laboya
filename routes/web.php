@@ -1,7 +1,9 @@
 <?php
 
-use App\Livewire\Members\Create;
-use App\Livewire\Members\Index;
+use App\Livewire\Members\Create as CreateMember;
+use App\Livewire\Members\Index as IndexMember;
+use App\Livewire\Members\Show as ShowMember;
+use App\Livewire\Members\Edit as EditMember;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -18,8 +20,10 @@ Route::middleware(['auth'])->group(function () {
 
   Route::prefix('admin')->group(function () {
       Route::prefix('/members')->group(function () {
-        Route::get('/', Index::class)->name('admin.members.index');
-        Route::get('/create', Create::class)->name('admin.members.create');
+        Route::get('/', IndexMember::class)->name('admin.members.index');
+        Route::get('/create', CreateMember::class)->name('admin.members.create');
+        Route::get('/{member}', ShowMember::class)->name('admin.members.show');
+        Route::get('/{member}/edit', EditMember::class)->name('admin.members.edit');
       });
   });
 

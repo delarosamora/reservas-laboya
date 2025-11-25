@@ -41,5 +41,8 @@
     <!-- Include Scripts -->
     @include('partials.scripts')
     <!-- / Include Scripts -->
+
+    @include('partials.toast')
+
   </body>
 </html>

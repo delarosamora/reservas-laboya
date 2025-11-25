@@ -8,4 +8,8 @@ class Member extends Model
 {
     protected $table = 'members';
     protected $guarded = [];
+
+    public function getFullNameAttribute(){
+      return $this->name . ' ' . $this->surname;
+    }
 }

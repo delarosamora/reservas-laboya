@@ -28,6 +28,17 @@ class Form extends Component
   #[Validate('required|integer|min:1')]
   public mixed $number;
 
+  public function mount(?Member $member = null){
+    if (!is_null($member->id)){
+      $this->member = $member;
+      $this->name = $this->member->name;
+      $this->surname = $this->member->surname;
+      $this->email = $this->member->email;
+      $this->phone = $this->member->phone;
+      $this->number = $this->member->number;
+    }
+  }
+
   public function render()
   {
       return view('livewire.members.form');
@@ -37,8 +48,15 @@ class Form extends Component
     $this->validate();
 
     try{
-      Member::create($this->except('member'));
-      dd($this->all());
+
+      if (is_null($this->member)){
+        $this->member = Member::create($this->except('member'));
+      }else{
+        $this->member->update($this->except('member'));
+      }
+
+      session()->flash('success', __('Member saved succesfully'));
+      $this->redirectRoute('admin.members.show', $this->member->id);
     }catch(Throwable $e){
       Log::error($e->getMessage());
       Log::error($e->getTraceAsString());
