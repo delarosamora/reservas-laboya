@@ -1,5 +1,11 @@
 <?php
 
+
+use App\Livewire\Holidays\Create as CreateHoliday;
+use App\Livewire\Holidays\Index as IndexHoliday;
+use App\Livewire\Holidays\Show as ShowHoliday;
+use App\Livewire\Holidays\Edit as EditHoliday;
+
 use App\Livewire\Members\Create as CreateMember;
 use App\Livewire\Members\Index as IndexMember;
 use App\Livewire\Members\Show as ShowMember;
@@ -24,6 +30,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/create', CreateMember::class)->name('admin.members.create');
         Route::get('/{member}', ShowMember::class)->name('admin.members.show');
         Route::get('/{member}/edit', EditMember::class)->name('admin.members.edit');
+      });
+
+      Route::prefix('/holidays')->group(function () {
+        Route::get('/', IndexHoliday::class)->name('admin.holidays.index');
+        Route::get('/create', CreateHoliday::class)->name('admin.holidays.create');
+        Route::get('/{holiday}', ShowHoliday::class)->name('admin.holidays.show');
+        Route::get('/{holiday}/edit', EditHoliday::class)->name('admin.holidays.edit');
       });
   });
 
