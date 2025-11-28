@@ -10,6 +10,7 @@
 @vite(['resources/assets/vendor/scss/core.scss','resources/assets/css/demo.css', 'resources/css/app.css'])
 
 <!-- Vendor Styles -->
+@vite('resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.scss')
 @yield('vendor-style')
 
 <!-- Page Styles -->
