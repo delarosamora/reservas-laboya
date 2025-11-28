@@ -1,6 +1,11 @@
 <?php
 
 
+use App\Livewire\Bookings\Create as CreateBooking;
+use App\Livewire\Bookings\Index as IndexBooking;
+use App\Livewire\Bookings\Show as ShowBooking;
+use App\Livewire\Bookings\Edit as EditBooking;
+
 use App\Livewire\Holidays\Create as CreateHoliday;
 use App\Livewire\Holidays\Index as IndexHoliday;
 use App\Livewire\Holidays\Show as ShowHoliday;
@@ -25,6 +30,13 @@ Route::middleware(['auth'])->group(function () {
   Route::redirect('settings', 'settings/profile');
 
   Route::prefix('admin')->group(function () {
+
+      Route::prefix('/bookings')->group(function () {
+        Route::get('/', IndexBooking::class)->name('admin.bookings.index');
+        Route::get('/create', CreateBooking::class)->name('admin.bookings.create');
+        Route::get('/{booking}', ShowBooking::class)->name('admin.bookings.show');
+        Route::get('/{booking}/edit', EditBooking::class)->name('admin.bookings.edit');
+      });
       Route::prefix('/members')->group(function () {
         Route::get('/', IndexMember::class)->name('admin.members.index');
         Route::get('/create', CreateMember::class)->name('admin.members.create');
