@@ -69,9 +69,9 @@ class Menu {
       if (toggleLink) {
         e.preventDefault()
 
-        if (toggleLink.getAttribute('data-hover') !== 'true') {
-          this.toggle(toggleLink)
-        }
+        // if (toggleLink.getAttribute('data-hover') !== 'true') {
+        //   this.toggle(toggleLink)
+        // }
       }
     }
     if (window.Helpers.isMobileDevice) this._el.addEventListener('click', this._evntElClick)
