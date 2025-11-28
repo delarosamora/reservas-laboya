@@ -35,6 +35,18 @@ class Form extends Component
   public function save(){
     $this->validate();
 
+    if(is_null($this->holiday)){
+      $query = Holiday::query();
+    }
+    else{
+      $query = Holiday::whereKeyNot($this->holiday->id);
+    }
+
+    if ($query->where('date', $this->date)->exists()){
+      $this->addError('date', __('Existing holiday'));
+      return;
+    }
+
     try{
 
       if (is_null($this->holiday)){

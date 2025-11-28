@@ -96,6 +96,19 @@ class Form extends Component
   public function save(){
     $this->validate();
 
+    if(is_null($this->booking)){
+      $query = Booking::query();
+    }
+    else{
+      $query = Booking::whereKeyNot($this->booking->id);
+    }
+
+    if ($query->where('shift_id', $this->shift_id)->where('date', $this->date)->exists()){
+      $this->addError('shift_id', __('Existing booking'));
+      $this->addError('date', __('Existing booking'));
+      return;
+    }
+
     try{
 
       if (is_null($this->booking)){
