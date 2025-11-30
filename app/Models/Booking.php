@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Booking extends Model
 {
@@ -12,6 +13,13 @@ class Booking extends Model
     protected $casts = [
       'date' => 'date'
     ];
+
+    protected static function booted(): void
+    {
+        static::creating(function (Booking $booking) {
+            $booking->code = strtoupper(Str::random(8));
+        });
+    }
 
     #region RELATIONSHIPS
     public function member(){
@@ -26,4 +34,16 @@ class Booking extends Model
       return $this->belongsTo(BookingStatus::class, 'status_id');
     }
     #endregion
+
+    public function isPendingConfirm(){
+      return $this->status_id == BookingStatus::PENDING_CONFIRM;
+    }
+
+    public function isConfirmed(){
+      return $this->status_id == BookingStatus::CONFIRMED;
+    }
+
+    public function isCancelled(){
+      return $this->status_id == BookingStatus::CANCELLED;
+    }
 }
