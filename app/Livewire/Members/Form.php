@@ -47,6 +47,13 @@ class Form extends Component
   public function save(){
     $this->validate();
 
+    $query = is_null($this->member) ? Member::query() : Member::whereKeyNot($this->member->id);
+
+    if ($query->where('number', $this->number)->exists()){
+      $this->addError('number', __('Existing member'));
+      return;
+    }
+
     try{
 
       if (is_null($this->member)){
