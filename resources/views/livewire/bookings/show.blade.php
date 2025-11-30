@@ -1,5 +1,4 @@
 @section('title', __('Booking'))
-
 <div>
   <div class="row py-3">
     <div class="col text-end">
@@ -13,38 +12,71 @@
       @endcan
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-        <div class="card">
-          <div class="card-header d-flex justify-content-between align-items-center">
-              <h5 class="mb-0">{{ $booking->date->format('d/m/Y') }}</h5>
-              <small class="text-body float-end">{{ __('Shift') }}: {{ $booking->shift->time }}</small>
+  <div class="nav-align-top">
+    <ul class="nav nav-pills mb-4" role="tablist">
+      <li class="nav-item">
+        <button
+          type="button"
+          class="nav-link active"
+          role="tab"
+          data-bs-toggle="tab"
+          data-bs-target="#navs-pills-top-info"
+          aria-controls="navs-pills-top-info"
+          aria-selected="true">
+          <i class="icon-base bx bx-info-circle"></i> {{ __('Information') }}
+        </button>
+      </li>
+      <li class="nav-item">
+        <button
+          type="button"
+          class="nav-link"
+          role="tab"
+          data-bs-toggle="tab"
+          data-bs-target="#navs-pills-top-member"
+          aria-controls="navs-pills-top-member"
+          aria-selected="false">
+          <i class="icon-base bx bx-user"></i> {{ __('Member') }}
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="navs-pills-top-info" role="tabpanel">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>{{ __('Status') }}</strong>: <span class="badge text-bg-{{ $booking->status->class }}">{{ $booking->status->name }}</span></li>
+              <li class="list-group-item"><strong>{{ __('Date') }}</strong>: {{ $booking->date->format('d/m/Y') }}</li>
+              <li class="list-group-item"><strong>{{ __('Shift') }}</strong>: {{ $booking->shift->time }}</li>
+              <li class="list-group-item"><strong>{{ __('Name') }}</strong>: {{ $booking->name }}</li>
+              <li class="list-group-item"><strong>{{ __('Surname') }}</strong>: {{ $booking->surname }}</li>
+              <li class="list-group-item"><strong>{{ __('Member number') }}</strong>: {{ $booking->member_number }}</li>
+            </ul>
           </div>
-          <div class="card-body">
-            <div class="row row-cols-1 row-cols-lg-2">
-              <div class="col">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><strong>{{ __('Status') }}</strong>: <span class="badge text-bg-{{ $booking->status->class }}">{{ $booking->status->name }}</span></li>
-                  <li class="list-group-item"><strong>{{ __('Date') }}</strong>: {{ $booking->date->format('d/m/Y') }}</li>
-                  <li class="list-group-item"><strong>{{ __('Shift') }}</strong>: {{ $booking->shift->time }}</li>
-                  <li class="list-group-item"><strong>{{ __('Name') }}</strong>: {{ $booking->name }}</li>
-                  <li class="list-group-item"><strong>{{ __('Surname') }}</strong>: {{ $booking->surname }}</li>
-                  <li class="list-group-item"><strong>{{ __('Member number') }}</strong>: {{ $booking->member_number }}</li>
-                </ul>
-              </div>
-              <div class="col">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><strong>{{ __('Email') }}</strong>: {{ $booking->email }}</li>
-                  <li class="list-group-item"><strong>{{ __('Phone') }}</strong>: {{ $booking->phone }}</li>
-                  <li class="list-group-item"><strong>{{ __('Number of guests') }}</strong>: {{ $booking->number_of_guests }}</li>
-                  <li class="list-group-item"><strong>{{ __('Observations') }}</strong>: {{ $booking->observations }}</li>
-                  <li class="list-group-item"><strong>{{ __('Code') }}</strong>: {{ $booking->code }}</li>
-                  <li class="list-group-item"><strong>{{ __('Created date') }}</strong>: {{ $booking->created_at->format('d/m/Y H:i') }}</li>
-                </ul>
-              </div>
-            </div>
+          <div class="col">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>{{ __('Email') }}</strong>: {{ $booking->email }}</li>
+              <li class="list-group-item"><strong>{{ __('Phone') }}</strong>: {{ $booking->phone }}</li>
+              <li class="list-group-item"><strong>{{ __('Number of guests') }}</strong>: {{ $booking->number_of_guests }}</li>
+              <li class="list-group-item"><strong>{{ __('Observations') }}</strong>: {{ $booking->observations }}</li>
+              <li class="list-group-item"><strong>{{ __('Code') }}</strong>: {{ $booking->code }}</li>
+              <li class="list-group-item"><strong>{{ __('Created date') }}</strong>: {{ $booking->created_at->format('d/m/Y H:i') }}</li>
+            </ul>
           </div>
         </div>
       </div>
+      <div class="tab-pane fade" id="navs-pills-top-member" role="tabpanel">
+        @if($booking->member()->exists())
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>{{ __('Name') }}</strong>: {{ $booking->member->name }}</li>
+              <li class="list-group-item"><strong>{{ __('Surname') }}</strong>: {{ $booking->member->surname }}</li>
+              <li class="list-group-item"><strong>{{ __('Email') }}</strong>: {{ $booking->member->email }}</li>
+              <li class="list-group-item"><strong>{{ __('Phone') }}</strong>: {{ $booking->member->phone }}</li>
+              <li class="list-group-item"><strong>{{ __('Number') }}</strong>: {{ $booking->member->number }}</li>
+            </ul>
+        @else
+        {{ __('Member not found') }}
+        @endif
+      </div>
+    </div>
   </div>
 </div>
