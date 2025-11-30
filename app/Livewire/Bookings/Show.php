@@ -14,6 +14,14 @@ class Show extends Component
     $this->booking = $booking;
   }
 
+  public function cancel(){
+    $this->redirectRoute('admin.bookings.cancel', $this->booking->id);
+  }
+
+  public function confirm(){
+    $this->redirectRoute('admin.bookings.confirm', $this->booking->id);
+  }
+
   public function render()
   {
       return view('livewire.bookings.show');

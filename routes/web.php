@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\BookingController;
 use App\Livewire\Bookings\Create as CreateBooking;
 use App\Livewire\Bookings\Index as IndexBooking;
 use App\Livewire\Bookings\Show as ShowBooking;
@@ -36,6 +36,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/create', CreateBooking::class)->name('admin.bookings.create');
         Route::get('/{booking}', ShowBooking::class)->name('admin.bookings.show');
         Route::get('/{booking}/edit', EditBooking::class)->name('admin.bookings.edit');
+        Route::get('/{booking}/confirm', [BookingController::class, 'confirm'])->name('admin.bookings.confirm');
+        Route::get('/{booking}/cancel', [BookingController::class, 'cancel'])->name('admin.bookings.cancel');
       });
       Route::prefix('/members')->group(function () {
         Route::get('/', IndexMember::class)->name('admin.members.index');

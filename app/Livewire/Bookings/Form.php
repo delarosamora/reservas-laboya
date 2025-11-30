@@ -103,7 +103,7 @@ class Form extends Component
       $query = Booking::whereKeyNot($this->booking->id);
     }
 
-    if ($query->where('shift_id', $this->shift_id)->where('date', $this->date)->exists()){
+    if ($query->where('shift_id', $this->shift_id)->where('date', $this->date)->whereNot('status_id', BookingStatus::CANCELLED)->exists()){
       $this->addError('shift_id', __('Existing booking'));
       $this->addError('date', __('Existing booking'));
       return;
