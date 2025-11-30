@@ -16,6 +16,6 @@ class Index extends Component
 
     #[Computed]
     public function holidays(){
-      return Holiday::where('date', '>=', Carbon::now())->orderBy('date', 'desc')->get();
+      return Holiday::orderBy('date', 'desc')->get();
     }
 }
