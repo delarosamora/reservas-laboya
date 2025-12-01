@@ -6,9 +6,9 @@
 {{ __('We would like to inform you that your booking has been canceled. Should you require further assistance or wish to make a new booking, we will be happy to help.') }}
 
 <x-mail::table>
-| {{ __('Date') }}                         | {{ __('Shift') }}              | {{ __('Number of guests') }}        |
-| :--------------------------------------: | :----------------------------: | :---------------------------------: |
-| {{ $notifiable->date->format('d/m/Y') }} | {{ $notifiable->shift->time }} | {{ $notifiable->number_of_guests }} |
+| {{ __('Date') }}                         | {{ __('Shift') }}              | {{ __('Number of guests') }}        | {{ __('Status') }}              |
+| :--------------------------------------: | :----------------------------: | :---------------------------------: | :-----------------------------: |
+| {{ $notifiable->date->format('d/m/Y') }} | {{ $notifiable->shift->time }} | {{ $notifiable->number_of_guests }} | {{ $notifiable->status->name }} |
 </x-mail::table>
 
 {{ __('Best regards') }},<br>

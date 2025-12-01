@@ -6,9 +6,9 @@
 {{ __('We have received your booking request. It is currently under review. We will notify you as soon as it has been confirmed.') }}
 
 <x-mail::table>
-| {{ __('Date') }}                         | {{ __('Shift') }}              | {{ __('Number of guests') }}        |
-| :--------------------------------------: | :----------------------------: | :---------------------------------: |
-| {{ $notifiable->date->format('d/m/Y') }} | {{ $notifiable->shift->time }} | {{ $notifiable->number_of_guests }} |
+| {{ __('Date') }}                         | {{ __('Shift') }}              | {{ __('Number of guests') }}        | {{ __('Status') }}              |
+| :--------------------------------------: | :----------------------------: | :---------------------------------: | :-----------------------------: |
+| {{ $notifiable->date->format('d/m/Y') }} | {{ $notifiable->shift->time }} | {{ $notifiable->number_of_guests }} | {{ $notifiable->status->name }} |
 </x-mail::table>
 
 {{ __('Best regards') }},<br>

@@ -18,6 +18,8 @@ class BookingController extends Controller
         $booking->status_id = BookingStatus::CONFIRMED;
         $booking->save();
 
+        $booking->sendNotification();
+
         return redirect()->route('admin.bookings.show', $booking)->with('success', __('Booking confirmed succesfully'));
 
       }catch(Throwable $e){
@@ -35,6 +37,8 @@ class BookingController extends Controller
 
         $booking->status_id = BookingStatus::CANCELLED;
         $booking->save();
+
+        $booking->sendNotification();
 
         return redirect()->route('admin.bookings.show', $booking)->with('success', __('Booking cancelled succesfully'));
       }catch(Throwable $e){

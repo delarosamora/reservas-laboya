@@ -8,7 +8,7 @@
         <button class="btn btn-success" wire:click="confirm" wire:confirm="{{ __('Are you sure?') }}"><i class="menu-icon tf-icons bx bx-check-circle"></i> {{ __('Confirm') }}</button>
       @endcan
       @can('cancel', $booking)
-        <button class="btn btn-danger" wire:click="confirm" wire:confirm="{{ __('Are you sure?') }}"><i class="menu-icon tf-icons bx bx-x-circle"></i> {{ __('Cancel') }}</button>
+        <button class="btn btn-danger" wire:click="cancel" wire:confirm="{{ __('Are you sure?') }}"><i class="menu-icon tf-icons bx bx-x-circle"></i> {{ __('Cancel') }}</button>
       @endcan
     </div>
   </div>

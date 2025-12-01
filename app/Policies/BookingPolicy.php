@@ -20,6 +20,6 @@ class BookingPolicy
     }
 
     public function cancel(User $user, Booking $booking){
-      return $booking->isPendingConfirm() || $booking->isCancelled();
+      return $booking->isPendingConfirm() || $booking->isConfirmed();
     }
 }
