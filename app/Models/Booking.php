@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 
 class Booking extends Model
 {
+
+    use Notifiable;
+
     protected $table = 'bookings';
     protected $guarded = [];
 
