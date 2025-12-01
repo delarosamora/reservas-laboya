@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\BookingNotificationEvent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -38,6 +39,10 @@ class Booking extends Model
       return $this->belongsTo(BookingStatus::class, 'status_id');
     }
     #endregion
+
+    public function sendNotification(){
+      BookingNotificationEvent::dispatch($this);
+    }
 
     public function isPendingConfirm(){
       return $this->status_id == BookingStatus::PENDING_CONFIRM;
