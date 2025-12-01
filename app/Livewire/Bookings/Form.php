@@ -94,6 +94,9 @@ class Form extends Component
   }
 
   public function save(){
+    if (empty($this->member_id)) {
+        $this->member_id = null;
+    }
     $this->validate();
 
     if(is_null($this->booking)){
