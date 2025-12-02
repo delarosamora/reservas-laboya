@@ -10,7 +10,7 @@
           is a
           little bit longer.
         </p>
-        <button type="button" class="btn btn-xl btn-primary my-2  ">{{ __('Make a booking') }}</button>
+        <a href="{{ route('createBooking') }}" class="btn btn-xl btn-primary my-2 ">{{ __('Make a booking') }}</a>
         <button type="button" class="btn btn-xl btn-primary my-2">{{ __('Consult my booking status') }}</button>
       </div>
     </div>

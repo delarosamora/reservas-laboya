@@ -15,12 +15,17 @@ use App\Livewire\Members\Create as CreateMember;
 use App\Livewire\Members\Index as IndexMember;
 use App\Livewire\Members\Show as ShowMember;
 use App\Livewire\Members\Edit as EditMember;
+use App\Livewire\Public\CreateBooking as PublicCreateBooking;
+use App\Livewire\Public\ShowBooking as PublicShowBooking;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::get('/', function () {
   return view('welcome');
 })->name('home');
+
+Route::get('create-booking', PublicCreateBooking::class)->name('createBooking');
+Route::get('show-booking/{code}', PublicShowBooking::class)->name('showBooking');
 
 Route::view('dashboard', 'dashboard')
   ->middleware(['auth', 'verified'])
