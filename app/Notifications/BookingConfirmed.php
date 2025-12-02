@@ -36,6 +36,7 @@ class BookingConfirmed extends Notification
     {
         return (new MailMessage)
             ->subject(__('Booking confirmed'))
+            ->cc(config('mail.from.address'))
             ->markdown('mail.booking.confirmed', ['notifiable' => $notifiable]);
     }
 
