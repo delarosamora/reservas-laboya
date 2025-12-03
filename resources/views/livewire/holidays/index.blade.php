@@ -1,6 +1,9 @@
 @section('title', __('Holidays'))
 <div>
   <div class="row py-3">
+            <div class="col text-start">
+      @include('partials.breadcrumbs')
+    </div>
     <div class="col text-end">
       <a href="{{ route('admin.holidays.create') }}" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-plus-circle"></i> {{ __('Add new holiday') }}</a>
     </div>

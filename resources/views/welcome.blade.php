@@ -1,5 +1,10 @@
 @extends('components.layouts.public')
 @section('content')
+<div class="row py-3">
+  <div class="col text-start">
+    @include('partials.breadcrumbs')
+  </div>
+</div>
 <div class="card my-5">
   <div class="row g-0">
     <div class="col-md-8">

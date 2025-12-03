@@ -1,6 +1,9 @@
 @section('title', __('Booking'))
 <div>
   <div class="row py-3">
+        <div class="col text-start">
+      @include('partials.breadcrumbs')
+    </div>
     <div class="col text-end">
       <a href="{{ route('admin.bookings.index') }}" class="btn btn-secondary"><i class="menu-icon tf-icons bx bx-arrow-back"></i> {{ __('Back') }}</a>
       <a href="{{ route('admin.bookings.edit', $booking) }}" class="btn btn-warning"><i class="menu-icon tf-icons bx bx-edit-alt"></i> {{ __('Edit') }}</a>
