@@ -57,8 +57,8 @@ class CreateBooking extends Component
   }
 
   public function save(){
-    $this->member_id = optional(Member::where('number', $this->member_number)->first())->id;
     $this->validate();
+    $this->member_id = optional(Member::where('number', $this->member_number)->first())->id;
 
     if (Booking::where('shift_id', $this->shift_id)->where('date', $this->date)->whereNot('status_id', BookingStatus::CANCELLED)->exists()){
       $this->addError('shift_id', __('Existing booking'));
