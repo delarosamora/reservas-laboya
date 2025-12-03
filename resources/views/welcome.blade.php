@@ -11,7 +11,7 @@
           little bit longer.
         </p>
         <a href="{{ route('createBooking') }}" class="btn btn-xl btn-primary my-2 ">{{ __('Make a booking') }}</a>
-        <button type="button" class="btn btn-xl btn-primary my-2">{{ __('Consult my booking status') }}</button>
+        <a href="{{ route('consultBookingStatus') }}" class="btn btn-xl btn-primary my-2 ">{{ __('Consult my booking status') }}</a>
       </div>
     </div>
     <div class="col-md-4">
