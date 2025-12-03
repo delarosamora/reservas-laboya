@@ -5,7 +5,7 @@
       @include('partials.breadcrumbs')
     </div>
     <div class="col text-end">
-      <a href="{{ route('admin.bookings.create') }}" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-plus-circle"></i> {{ __('Add new booking') }}</a>
+      <a href="{{ route('admin.bookings.create') }}" class="btn btn-primary" wire:navigate><i class="menu-icon tf-icons bx bx-plus-circle"></i> {{ __('Add new booking') }}</a>
     </div>
   </div>
   <div class="row g-4">
@@ -33,8 +33,8 @@
                   <div class="dropdown">
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="icon-base bx bx-dots-vertical-rounded"></i></button>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="{{ route('admin.bookings.show', $booking) }}"><i class="icon-base bx bx-show me-1"></i>{{ __('View') }}</a>
-                      <a class="dropdown-item" href="{{ route('admin.bookings.edit', $booking) }}"><i class="icon-base bx bx-edit-alt me-1"></i>{{ __('Edit') }}</a>
+                      <a class="dropdown-item" href="{{ route('admin.bookings.show', $booking) }}" wire:navigate><i class="icon-base bx bx-show me-1"></i>{{ __('View') }}</a>
+                      <a class="dropdown-item" href="{{ route('admin.bookings.edit', $booking) }}" wire:navigate><i class="icon-base bx bx-edit-alt me-1"></i>{{ __('Edit') }}</a>
                     </div>
                   </div>
                 </td>
