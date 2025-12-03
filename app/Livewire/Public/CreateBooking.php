@@ -4,6 +4,7 @@ namespace App\Livewire\Public;
 
 use App\Models\Booking;
 use App\Models\BookingStatus;
+use App\Models\Holiday;
 use App\Models\Member;
 use App\Models\Shift;
 use Illuminate\Support\Facades\Log;
@@ -63,6 +64,11 @@ class CreateBooking extends Component
     if (Booking::where('shift_id', $this->shift_id)->where('date', $this->date)->whereNot('status_id', BookingStatus::CANCELLED)->exists()){
       $this->addError('shift_id', __('Existing booking'));
       $this->addError('date', __('Existing booking'));
+      return;
+    }
+
+      if (Holiday::where('date', $this->date)->exists()){
+      $this->addError('date', __('Existing holiday'));
       return;
     }
 
