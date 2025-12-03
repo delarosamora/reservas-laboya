@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
     window.Helpers.mainMenu = menu;
   });
 
-  // Initialize menu togglers and bind click on each
+  const initMenuTogglers = () => {
+      // Initialize menu togglers and bind click on each
   let menuToggler = document.querySelectorAll('.layout-menu-toggle');
   menuToggler.forEach(item => {
     item.addEventListener('click', event => {
@@ -36,6 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
       window.Helpers.toggleCollapsed();
     });
   });
+  }
+
+  initMenuTogglers()
+
+  document.addEventListener('livewire:navigated', () => {
+    initMenuTogglers()
+})
 
   // Display menu toggle (layout-menu-toggle) on hover with delay
   let delay = function (elem, callback) {
