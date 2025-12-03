@@ -15,6 +15,7 @@ use App\Livewire\Members\Create as CreateMember;
 use App\Livewire\Members\Index as IndexMember;
 use App\Livewire\Members\Show as ShowMember;
 use App\Livewire\Members\Edit as EditMember;
+use App\Livewire\Public\ConsultBookingStatus;
 use App\Livewire\Public\CreateBooking as PublicCreateBooking;
 use App\Livewire\Public\ShowBooking as PublicShowBooking;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('create-booking', PublicCreateBooking::class)->name('createBooking');
+Route::get('consult-booking-status', ConsultBookingStatus::class)->name('consultBookingStatus');
 Route::get('show-booking/{code}', PublicShowBooking::class)->name('showBooking');
 
 Route::view('dashboard', 'dashboard')
