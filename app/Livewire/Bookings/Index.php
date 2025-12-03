@@ -15,6 +15,6 @@ class Index extends Component
 
     #[Computed]
     public function bookings(){
-      return Booking::all();
+      return Booking::orderBy('date', 'desc')->get();
     }
 }
