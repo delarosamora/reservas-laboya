@@ -40,7 +40,7 @@ class CreateBooking extends Component
   #[Validate('nullable|integer|exists:members,id')]
   public mixed $member_id;
 
-  #[Validate('required|string|date|date_format:Y-m-d|after_or_equal:today')]
+  #[Validate('required|string|date|date_format:Y-m-d|after:tomorrow|before:+2 months')]
   public ?string $date;
 
   #[Validate('nullable|string')]
