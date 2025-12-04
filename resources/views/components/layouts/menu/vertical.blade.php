@@ -13,7 +13,7 @@
   <ul class="menu-inner py-1">
     <!-- Dashboards -->
     <li class="menu-item {{ request()->is('dashboard') ? 'active' : '' }}">
-      <a class="menu-link" href="{{ route('dashboard') }}" wire:navigate>{{ __('Dashboard') }}</a>
+      <a class="menu-link" href="{{ route('dashboard') }}" wire:navigate><i class="menu-icon tf-icons bx bx-home"></i>{{ __('Dashboard') }}</a>
     </li>
     <li class="menu-item {{ request()->is('admin/bookings') ? 'active' : '' }}">
       <a class="menu-link" href="{{ route('admin.bookings.index') }}" wire:navigate><i class="menu-icon tf-icons bx bx-restaurant"></i> {{ __('Bookings') }}</a>
