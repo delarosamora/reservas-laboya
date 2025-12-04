@@ -63,7 +63,7 @@ class Form extends Component
       }
 
       session()->flash('success', __('Member saved succesfully'));
-      $this->redirectRoute('admin.members.show', $this->member->id);
+      $this->redirectRoute('admin.members.show', $this->member->id, true, true);
     }catch(Throwable $e){
       Log::error($e->getMessage());
       Log::error($e->getTraceAsString());

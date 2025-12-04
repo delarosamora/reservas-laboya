@@ -81,7 +81,7 @@ class CreateBooking extends Component
         $booking->sendNotification();
 
       session()->flash('success', __('Booking saved succesfully'));
-      $this->redirectRoute('showBooking', $booking->code);
+      $this->redirectRoute('showBooking', $booking->code, true, true);
     }catch(Throwable $e){
       session()->flash('error', __('Error while saving booking'));
       Log::error($e->getMessage());

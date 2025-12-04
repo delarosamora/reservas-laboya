@@ -129,8 +129,9 @@ class Form extends Component
       }
 
       session()->flash('success', __('Booking saved succesfully'));
-      $this->redirectRoute('admin.bookings.show', $this->booking->id);
+      $this->redirectRoute('admin.bookings.show', $this->booking->id, true, true);
     }catch(Throwable $e){
+      session()->flash('success', __('Error while saving booking'));
       Log::error($e->getMessage());
       Log::error($e->getTraceAsString());
     }

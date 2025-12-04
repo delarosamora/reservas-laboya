@@ -56,7 +56,7 @@ class Form extends Component
       }
 
       session()->flash('success', __('Holiday saved succesfully'));
-      $this->redirectRoute('admin.holidays.show', $this->holiday->id);
+      $this->redirectRoute('admin.holidays.show', $this->holiday->id, true, true);
     }catch(Throwable $e){
       Log::error($e->getMessage());
       Log::error($e->getTraceAsString());

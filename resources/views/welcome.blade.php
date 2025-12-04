@@ -15,8 +15,8 @@
           is a
           little bit longer.
         </p>
-        <a href="{{ route('createBooking') }}" class="btn btn-xl btn-primary my-2 ">{{ __('Make a booking') }}</a>
-        <a href="{{ route('consultBookingStatus') }}" class="btn btn-xl btn-primary my-2 ">{{ __('Consult my booking status') }}</a>
+        <a href="{{ route('createBooking') }}" class="btn btn-xl btn-primary my-2" wire:navigate>{{ __('Make a booking') }}</a>
+        <a href="{{ route('consultBookingStatus') }}" class="btn btn-xl btn-primary my-2" wire:navigate>{{ __('Consult my booking status') }}</a>
       </div>
     </div>
     <div class="col-md-4">
