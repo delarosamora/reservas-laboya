@@ -5,7 +5,7 @@ use App\Livewire\Bookings\Create as CreateBooking;
 use App\Livewire\Bookings\Index as IndexBooking;
 use App\Livewire\Bookings\Show as ShowBooking;
 use App\Livewire\Bookings\Edit as EditBooking;
-
+use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\Holidays\Create as CreateHoliday;
 use App\Livewire\Holidays\Index as IndexHoliday;
 use App\Livewire\Holidays\Show as ShowHoliday;
@@ -29,7 +29,7 @@ Route::get('create-booking', PublicCreateBooking::class)->name('createBooking');
 Route::get('consult-booking-status', ConsultBookingStatus::class)->name('consultBookingStatus');
 Route::get('show-booking/{code}', PublicShowBooking::class)->name('showBooking');
 
-Route::view('dashboard', 'dashboard')
+Route::get('dashboard', Dashboard::class)
   ->middleware(['auth', 'verified'])
   ->name('dashboard');
 
