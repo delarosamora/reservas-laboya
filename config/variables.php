@@ -1,9 +1,9 @@
 <?php
 // Variables
 return [
-  "creatorName" => "ThemeSelection",
+  "creatorName" => "Alvaro de la Rosa",
   "creatorUrl" => "https://themeselection.com",
-  "templateName" => "Sneat",
+  "templateName" => "La Boya",
   "templateSuffix" => "Laravel Bootstrap Starter Kit",
   "templateVersion" => "1.0.0",
   "templateFree" => true,
