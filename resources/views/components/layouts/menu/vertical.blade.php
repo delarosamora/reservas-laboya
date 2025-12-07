@@ -15,13 +15,13 @@
     <li class="menu-item {{ request()->is('dashboard') ? 'active' : '' }}">
       <a class="menu-link" href="{{ route('dashboard') }}"><i class="menu-icon tf-icons bx bx-home"></i>{{ __('Dashboard') }}</a>
     </li>
-    <li class="menu-item {{ request()->is('admin/bookings') ? 'active' : '' }}">
+    <li class="menu-item {{ request()->is('admin/bookings/*') ? 'active' : '' }}">
       <a class="menu-link" href="{{ route('admin.bookings.index') }}" wire:navigate><i class="menu-icon tf-icons bx bx-restaurant"></i> {{ __('Bookings') }}</a>
     </li>
-    <li class="menu-item {{ request()->is('admin/members') ? 'active' : '' }}">
+    <li class="menu-item {{ request()->is('admin/members/*') ? 'active' : '' }}">
       <a class="menu-link" href="{{ route('admin.members.index') }}" wire:navigate><i class="menu-icon tf-icons bx bx-group"></i> {{ __('Members') }}</a>
     </li>
-    <li class="menu-item {{ request()->is('admin/holidays') ? 'active' : '' }}">
+    <li class="menu-item {{ request()->is('admin/holidays/*') ? 'active' : '' }}">
       <a class="menu-link" href="{{ route('admin.holidays.index') }}" wire:navigate><i class="menu-icon tf-icons bx bx-party"></i> {{ __('Holidays') }}</a>
     </li>
 
