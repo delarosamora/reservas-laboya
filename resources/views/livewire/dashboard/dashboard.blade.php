@@ -31,8 +31,10 @@
       </div>
     </div>
     <div class="col-lg-12">
-      <div class="overflow-hidden rounded border" style="aspect-ratio: 16/6;">
-        <x-placeholder-pattern class="h-100 w-100" style="stroke: color-mix(in oklab, oklch(.21 .034 264.665) 20%, transparent);" />
-      </div>
+<x-chartjs-component :chart="$chart" />
     </div>
 </div>
+
+@section('vendor-scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+@endsection
