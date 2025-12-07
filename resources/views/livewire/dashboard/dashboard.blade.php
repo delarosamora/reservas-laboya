@@ -1,7 +1,7 @@
 @section('title', __('Dashboard'))
 <div class="row g-4">
     <div class="col-lg-4">
-      <div class="card">
+      <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title"><i class="menu-icon tf-icons bx bx-restaurant"></i> {{ __('Bookings') }}</h5>
           <h6 class="card-title mb-2">{{ \App\Models\Booking::count() }}</h6>
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="card">
+      <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title"><i class="menu-icon tf-icons bx bx-group"></i> {{ __('Members') }}</h5>
           <h6 class="card-title mb-2">{{ \App\Models\Member::count() }}</h6>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="card">
+      <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title"><i class="menu-icon tf-icons bx bx-party"></i> {{ __('Holidays') }}</h5>
           <h6 class="card-title mb-2">{{ \App\Models\Holiday::count() }}</h6>

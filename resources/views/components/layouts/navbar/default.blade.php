@@ -52,12 +52,12 @@
             </li>
             <li>
               <a class="dropdown-item {{ request()->routeIs('settings.profile') ? 'active' : '' }}" href="{{ route('settings.profile') }}" wire:navigate>
-                <i class="icon-base bx bx-user icon-md me-3"></i><span>My Profile</span>
+                <i class="icon-base bx bx-user icon-md me-3"></i><span>{{ __('My Profile') }}</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item {{ request()->routeIs('settings.password') ? 'active' : '' }}" href="{{ route('settings.password') }}" wire:navigate>
-                <i class="icon-base bx bx-cog icon-md me-3"></i><span>Settings</span>
+                <i class="icon-base bx bx-cog icon-md me-3"></i><span>{{ __('Settings') }}</span>
               </a>
             </li>
             <li>
@@ -66,7 +66,7 @@
             <li>
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button class="dropdown-item" type="submit" class="btn p-0"><i class="icon-base bx bx-power-off icon-md me-3"></i><span>Log Out</span></button>
+                <button class="dropdown-item" type="submit" class="btn p-0"><i class="icon-base bx bx-power-off icon-md me-3"></i><span>{{ __('Log Out') }}</span></button>
               </form>
             </li>
           </ul>

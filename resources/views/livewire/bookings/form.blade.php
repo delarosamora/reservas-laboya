@@ -89,6 +89,6 @@
           </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Send</button>
+    <button type="submit" class="btn btn-primary">{{ __('Send') }}</button>
 </form>
 

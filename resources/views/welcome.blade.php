@@ -11,9 +11,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ config('app.name') }}</h5>
         <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in to additional content. This content
-          is a
-          little bit longer.
+          {{ __('Book your table in seconds') }}
         </p>
         <a href="{{ route('createBooking') }}" class="btn btn-xl btn-primary my-2" wire:navigate>{{ __('Make a booking') }}</a>
         <a href="{{ route('consultBookingStatus') }}" class="btn btn-xl btn-primary my-2" wire:navigate>{{ __('Consult my booking status') }}</a>
