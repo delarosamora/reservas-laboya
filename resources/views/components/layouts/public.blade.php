@@ -9,12 +9,12 @@
       <div class="d-flex justify-content-end">
           @if (Route::has('login'))
             @auth
-                <a href="{{ url('/dashboard') }}" class="btn btn-primary">Dashboard</a>
+                <a href="{{ url('/dashboard') }}" class="btn btn-primary">{{ __('Dashboard') }}</a>
             @else
-                <a href="{{ route('login') }}" class="btn btn-secondary me-2">Log in</a>
+                <a href="{{ route('login') }}" class="btn btn-secondary me-2">{{ __('Log In') }}</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary">{{ __('Register') }}</a>
                 @endif
             @endauth
           @endif

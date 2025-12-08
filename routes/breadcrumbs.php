@@ -76,7 +76,7 @@ Breadcrumbs::for('admin.members.edit', function (BreadcrumbTrail $trail, Member 
 
 Breadcrumbs::for('admin.holidays.index', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
-    $trail->push(__('Members') , route('admin.holidays.index'));
+    $trail->push(__('Holidays') , route('admin.holidays.index'));
 });
 
 Breadcrumbs::for('admin.holidays.create', function (BreadcrumbTrail $trail) {
