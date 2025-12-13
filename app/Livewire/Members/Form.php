@@ -28,6 +28,9 @@ class Form extends Component
   #[Validate('required|integer|min:1')]
   public mixed $number;
 
+  #[Validate('required|string|max:9|spanish_tax_number')]
+  public mixed $nif;
+
   public function mount(?Member $member = null){
     if (!is_null($member->id)){
       $this->member = $member;
@@ -36,6 +39,7 @@ class Form extends Component
       $this->email = $this->member->email;
       $this->phone = $this->member->phone;
       $this->number = $this->member->number;
+      $this->nif = $this->member->nif;
     }
   }
 

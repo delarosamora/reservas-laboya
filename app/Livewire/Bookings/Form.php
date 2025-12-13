@@ -33,6 +33,9 @@ class Form extends Component
   #[Validate('required|integer|min:1')]
   public mixed $member_number;
 
+  #[Validate('required|string|max:9|spanish_tax_number')]
+  public mixed $nif;
+
   #[Validate('required|integer|min:1')]
   public mixed $number_of_guests;
 
@@ -57,6 +60,7 @@ class Form extends Component
       $this->email = $this->booking->email;
       $this->phone = $this->booking->phone;
       $this->member_number = $this->booking->member_number;
+      $this->nif = $this->booking->nif;
       $this->number_of_guests = $this->booking->number_of_guests;
       $this->date = $this->booking->date->format('Y-m-d');
       $this->shift_id = $this->booking->shift_id;
@@ -80,6 +84,7 @@ class Form extends Component
             $this->email = $member->email;
             $this->member_number = $member->number;
             $this->phone = $member->phone;
+            $this->nif = $member->nif;
           }
         }
     }

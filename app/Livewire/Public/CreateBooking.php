@@ -32,6 +32,9 @@ class CreateBooking extends Component
   #[Validate('required|integer|min:1')]
   public mixed $member_number;
 
+  #[Validate('required|string|max:9|spanish_tax_number')]
+  public mixed $nif;
+
   #[Validate('required|integer|min:1')]
   public mixed $number_of_guests;
 

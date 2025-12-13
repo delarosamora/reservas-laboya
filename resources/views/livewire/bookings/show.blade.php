@@ -52,6 +52,7 @@
               <li class="list-group-item"><strong>{{ __('Shift') }}</strong>: {{ $booking->shift->time }}</li>
               <li class="list-group-item"><strong>{{ __('Name') }}</strong>: {{ $booking->name }}</li>
               <li class="list-group-item"><strong>{{ __('Surname') }}</strong>: {{ $booking->surname }}</li>
+              <li class="list-group-item"><strong>{{ __('Nif') }}</strong>: {{ $booking->nif }}</li>
               <li class="list-group-item"><strong>{{ __('Member number') }}</strong>: {{ $booking->member_number }}</li>
             </ul>
           </div>
@@ -75,6 +76,7 @@
               <li class="list-group-item"><strong>{{ __('Email') }}</strong>: {{ $booking->member->email }}</li>
               <li class="list-group-item"><strong>{{ __('Phone') }}</strong>: {{ $booking->member->phone }}</li>
               <li class="list-group-item"><strong>{{ __('Number') }}</strong>: {{ $booking->member->number }}</li>
+              <li class="list-group-item"><strong>{{ __('Nif') }}</strong>: {{ $booking->member->nif }}</li>
             </ul>
         @else
         {{ __('Member not found') }}

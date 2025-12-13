@@ -24,6 +24,7 @@
               <li class="list-group-item"><strong>{{ __('Email') }}</strong>: {{ $member->email }}</li>
               <li class="list-group-item"><strong>{{ __('Phone') }}</strong>: {{ $member->phone }}</li>
               <li class="list-group-item"><strong>{{ __('Number') }}</strong>: {{ $member->number }}</li>
+              <li class="list-group-item"><strong>{{ __('Nif') }}</strong>: {{ $member->nif }}</li>
             </ul>
           </div>
         </div>

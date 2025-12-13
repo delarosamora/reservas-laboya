@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('surname');
             $table->string('email');
             $table->string('phone');
+            $table->string('nif');
             $table->string('code', 8)->unique();
             $table->integer('member_number');
             $table->integer('number_of_guests');

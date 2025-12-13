@@ -13,7 +13,7 @@
           </div>
           <div class="card-body">
   <form wire:submit="save">
-      <div class="row row-cols-1 row-cols-lg-2 mb-6">
+      <div class="row row-cols-1 row-cols-lg-3 mb-6">
         <div class="col">
             <label class="form-label" for="name" id="name-label">{{ __('Name') }}</label>
             <div class="input-group input-group-merge">
@@ -28,6 +28,13 @@
                 <x-forms.text-input id="surname" name="surname" wire:model="surname" />
             </div>
         </div>
+      <div class="col">
+          <label class="form-label" for="nif" id="name-label">{{ __('Nif') }}</label>
+          <div class="input-group input-group-merge">
+              <span class="input-group-text"><i class="icon-base bx bx-id-card"></i></span>
+              <x-forms.text-input id="nif" name="nif" wire:model="nif" />
+          </div>
+      </div>
       </div>
       <div class="row row-cols-1 row-cols-lg-3 mb-6">
         <div class="col">
