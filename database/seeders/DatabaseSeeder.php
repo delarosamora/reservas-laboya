@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
 
       $this->call([
           BookingStatusSeeder::class,
+          MemberSeeder::class,
           ShiftSeeder::class,
       ]);
         User::factory()->create([

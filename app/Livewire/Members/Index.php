@@ -15,6 +15,6 @@ class Index extends Component
 
     #[Computed]
     public function members(){
-      return Member::all();
+      return Member::orderBy('number')->get();
     }
 }

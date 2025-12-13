@@ -20,9 +20,9 @@
           <thead>
             <tr>
               <th>{{ __('Actions') }}</th>
+              <th>{{ __('Number') }}</th>
               <th>{{ __('Name') }}</th>
               <th>{{ __('Surname') }}</th>
-              <th>{{ __('Number') }}</th>
               <th>{{ __('Email') }}</th>
               <th>{{ __('Phone') }}</th>
             </tr>
@@ -39,9 +39,9 @@
                     </div>
                   </div>
                 </td>
+                <td>{{ $member->number }}</td>
                 <td>{{ $member->name }}</td>
                 <td>{{ $member->surname }}</td>
-                <td>{{ $member->number }}</td>
                 <td>{{ $member->email }}</td>
                 <td>{{ $member->phone }}</td>
 
