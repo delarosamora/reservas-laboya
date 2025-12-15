@@ -42,7 +42,7 @@
         </button>
       </li>
     </ul>
-    <div class="tab-content">
+    <div class="tab-content p-1">
       <div class="tab-pane fade show active" id="navs-pills-top-calendar" role="tabpanel">
         <livewire:bookings.calendar week-starts-at="1" :day-click-enabled="false" :drag-and-drop-enabled="false" />
       </div>
