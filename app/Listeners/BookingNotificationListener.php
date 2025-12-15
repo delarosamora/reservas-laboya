@@ -26,6 +26,10 @@ class BookingNotificationListener
     {
         $booking = $event->booking;
 
+        if (empty($booking->email)){
+          return;
+        }
+
         if ($booking->isPendingConfirm()){
           $booking->notify(new BookingPendingConfirm);
         }

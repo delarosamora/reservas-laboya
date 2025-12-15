@@ -23,7 +23,7 @@ class CreateBooking extends Component
   #[Validate('required|string|max:199')]
   public ?string $surname;
 
-  #[Validate('required|email|max:199')]
+  #[Validate('nullable|email|max:199')]
   public ?string $email;
 
   #[Validate('required|string')]
