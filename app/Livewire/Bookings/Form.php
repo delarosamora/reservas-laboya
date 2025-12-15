@@ -127,7 +127,6 @@ class Form extends Component
 
       if (is_null($this->booking)){
         $this->booking = Booking::create($this->except('booking'));
-        $this->booking->status_id = BookingStatus::PENDING_CONFIRM;
         $this->booking->save();
       }else{
         $this->booking->update($this->except('booking'));

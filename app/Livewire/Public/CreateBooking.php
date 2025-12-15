@@ -78,7 +78,6 @@ class CreateBooking extends Component
     try{
 
         $booking = Booking::create($this->all());
-        $booking->status_id = BookingStatus::PENDING_CONFIRM;
         $booking->save();
 
         $booking->sendNotification();

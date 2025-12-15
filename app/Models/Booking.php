@@ -22,6 +22,7 @@ class Booking extends Model
     protected static function booted(): void
     {
         static::creating(function (Booking $booking) {
+            $booking->status_id = BookingStatus::CONFIRMED;
             $booking->code = strtoupper(Str::random(8));
         });
     }
