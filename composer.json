@@ -12,6 +12,7 @@
         "php": "^8.2",
         "asantibanez/livewire-calendar": "^2.3",
         "diglactic/laravel-breadcrumbs": "^10.0",
+        "erag/laravel-pwa": "^1.9",
         "icehouse-ventures/laravel-chartjs": "*",
         "jenssegers/agent": "^2.6",
         "laravel/folio": "^1.1",

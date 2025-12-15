@@ -47,5 +47,6 @@
 
     @include('partials.toast')
 
+    @RegisterServiceWorkerScript
   </body>
 </html>

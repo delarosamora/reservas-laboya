@@ -1,0 +1,16 @@
+{
+    "name": "Reservas La Boya",
+    "short_name": "RLB",
+    "background_color": "#6777ef",
+    "display": "fullscreen",
+    "description": "Reserva tu espacio en la sociedad de forma r\u00e1pida y disfruta sin complicaciones.",
+    "theme_color": "#6777ef",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
