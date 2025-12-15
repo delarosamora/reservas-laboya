@@ -24,6 +24,12 @@ class PublicCalendar extends LivewireCalendar
     });
   }
 
+  public function onEventClick($eventId)
+  {
+    $booking = Booking::findOrFail($eventId);
+    $this->redirectRoute('showBooking', $booking->code, true, true);
+  }
+
   public function onDayClick($year, $month, $day)
   {
     $date = Carbon::now()->setYear($year)->setMonth($month)->setDay($day)->format('Y-m-d');
