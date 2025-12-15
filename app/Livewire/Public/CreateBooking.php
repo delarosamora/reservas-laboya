@@ -7,9 +7,10 @@ use App\Models\BookingStatus;
 use App\Models\Holiday;
 use App\Models\Member;
 use App\Models\Shift;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Computed;
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Throwable;
@@ -45,7 +46,7 @@ class CreateBooking extends Component
   public mixed $member_id;
 
   #[Validate('required|string|date|date_format:Y-m-d|after:tomorrow|before:+2 months')]
-  public ?string $date;
+  public ?string $date = null;
 
   #[Validate('nullable|string')]
   public ?string $observations;
@@ -58,6 +59,21 @@ class CreateBooking extends Component
   public function render()
   {
       return view('livewire.public.create-booking')->extends('components.layouts.public')->section('content');
+  }
+
+  #[On('date-selected')]
+  public function updateDate($date)
+  {
+      $this->date = $date;
+  }
+
+  public function changeDate(){
+    $this->date = null;
+  }
+
+  #[Computed]
+  public function date_fmt(){
+    return is_null($this->date) ? null : Carbon::parse($this->date)->format('d-m-Y');
   }
 
   public function save(){

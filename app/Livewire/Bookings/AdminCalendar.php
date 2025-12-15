@@ -6,7 +6,7 @@ use App\Models\Booking;
 use Asantibanez\LivewireCalendar\LivewireCalendar;
 use Illuminate\Support\Collection;
 
-abstract class Calendar extends LivewireCalendar
+class AdminCalendar extends LivewireCalendar
 {
 
   public function events() : Collection
@@ -20,5 +20,10 @@ abstract class Calendar extends LivewireCalendar
         'date' => $booking->date,
       ];
     });
+  }
+
+  public function onEventClick($eventId)
+  {
+      $this->redirectRoute('admin.bookings.show', $eventId, true, true);
   }
 }

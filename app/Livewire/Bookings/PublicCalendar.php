@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Bookings;
 
+use App\Livewire\Public\CreateBooking;
 use App\Models\Booking;
 use Asantibanez\LivewireCalendar\LivewireCalendar;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
-abstract class Calendar extends LivewireCalendar
+class PublicCalendar extends LivewireCalendar
 {
 
   public function events() : Collection
@@ -20,5 +22,11 @@ abstract class Calendar extends LivewireCalendar
         'date' => $booking->date,
       ];
     });
+  }
+
+  public function onDayClick($year, $month, $day)
+  {
+    $date = Carbon::now()->setYear($year)->setMonth($month)->setDay($day)->format('Y-m-d');
+    $this->dispatch('date-selected', date: $date)->to(CreateBooking::class);
   }
 }

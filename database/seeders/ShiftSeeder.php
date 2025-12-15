@@ -14,10 +14,6 @@ class ShiftSeeder extends Seeder
     public function run(): void
     {
         Shift::updateOrCreate(
-          ['time' => '09:00']
-        );
-
-        Shift::updateOrCreate(
           ['time' => '15:00']
         );
 
