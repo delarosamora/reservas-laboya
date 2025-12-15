@@ -17,6 +17,7 @@ use App\Livewire\Members\Show as ShowMember;
 use App\Livewire\Members\Edit as EditMember;
 use App\Livewire\Public\ConsultBookingStatus;
 use App\Livewire\Public\CreateBooking as PublicCreateBooking;
+use App\Livewire\Public\EditBooking as PublicEditBooking;
 use App\Livewire\Public\ShowBooking as PublicShowBooking;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -27,7 +28,8 @@ Route::get('/', function () {
 
 Route::get('create-booking', PublicCreateBooking::class)->name('createBooking');
 Route::get('consult-booking-status', ConsultBookingStatus::class)->name('consultBookingStatus');
-Route::get('show-booking/{code}', PublicShowBooking::class)->name('showBooking');
+Route::get('show-booking/{booking}', PublicShowBooking::class)->name('showBooking');
+Route::get('edit-booking/{booking}', PublicEditBooking::class)->name('editBooking');
 
 Route::get('dashboard', Dashboard::class)
   ->middleware(['auth', 'verified'])

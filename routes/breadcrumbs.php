@@ -16,9 +16,14 @@ Breadcrumbs::for('createBooking', function (BreadcrumbTrail $trail) {
     $trail->push(__('Create booking') , route('createBooking'));
 });
 
-Breadcrumbs::for('showBooking', function (BreadcrumbTrail $trail, string $code) {
+Breadcrumbs::for('showBooking', function (BreadcrumbTrail $trail, Booking $booking) {
     $trail->parent('home');
-    $trail->push(__('Show booking') , route('showBooking', $code));
+    $trail->push(__('Show booking') , route('showBooking', $booking));
+});
+
+Breadcrumbs::for('editBooking', function (BreadcrumbTrail $trail, Booking $booking) {
+    $trail->parent('showBooking', $booking);
+    $trail->push(__('Edit booking') , route('editBooking', $booking));
 });
 
 Breadcrumbs::for('consultBookingStatus', function (BreadcrumbTrail $trail) {

@@ -27,7 +27,7 @@ class PublicCalendar extends LivewireCalendar
   public function onEventClick($eventId)
   {
     $booking = Booking::findOrFail($eventId);
-    $this->redirectRoute('showBooking', $booking->code, true, true);
+    $this->redirectRoute('showBooking', $booking->id, true, true);
   }
 
   public function onDayClick($year, $month, $day)

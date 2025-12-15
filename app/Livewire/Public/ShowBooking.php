@@ -10,8 +10,8 @@ class ShowBooking extends Component
 
   public Booking $booking;
 
-  public function mount(string $code){
-    $this->booking = Booking::where('code', $code)->firstOrFail();
+  public function mount(Booking $booking){
+    $this->booking = $booking;
   }
 
   public function render()
