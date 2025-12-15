@@ -6,16 +6,18 @@ use App\Models\Booking;
 use Carbon\Carbon;
 use Livewire\Component;
 use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
+use Jenssegers\Agent\Agent;
 
 class Dashboard extends Component
 {
     public function render()
     {
       $year = Carbon::now()->year;
+      $agent = new Agent();
     $chart = Chartjs::build()
             ->name('barChartTest')
             ->type('bar')
-            ->size(['width' => 300, 'height' => 100])
+            ->size(['width' => 300, 'height' => $agent->isDesktop() ? 100 : 300])
             ->labels([__('January'), __('February'), __('March'), __('April'), __('May'), __('June'), __('July'), __('August'), __('September'), __('October'), __('November'), __('December')])
             ->datasets([
                 [
