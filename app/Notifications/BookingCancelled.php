@@ -36,7 +36,6 @@ class BookingCancelled extends Notification
     {
         return (new MailMessage)
             ->subject(__('Booking cancelled'))
-            ->cc(config('mail.from.address'))
             ->markdown('mail.booking.cancelled', ['notifiable' => $notifiable]);
     }
 
