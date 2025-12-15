@@ -15,39 +15,45 @@
       <h5 class="mb-0">{{ __('Bookings') }}</h5>
   </div>
   <div class="card-body">
-      <div class="table-responsive">
-        <table class="table mb-0">
-          <thead>
-            <tr>
-              <th>{{ __('Actions') }}</th>
-              <th>{{ __('Date') }}</th>
-              <th>{{ __('Shift') }}</th>
-              <th>{{ __('Status') }}</th>
-              <th>{{ __('Name') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($this->bookings as $booking)
-              <tr>
-                <td>
-                  <div class="dropdown">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="icon-base bx bx-dots-vertical-rounded"></i></button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="{{ route('admin.bookings.show', $booking) }}" wire:navigate><i class="icon-base bx bx-show me-1"></i>{{ __('View') }}</a>
-                      <a class="dropdown-item" href="{{ route('admin.bookings.edit', $booking) }}" wire:navigate><i class="icon-base bx bx-edit-alt me-1"></i>{{ __('Edit') }}</a>
-                    </div>
-                  </div>
-                </td>
-                <td>{{ $booking->date->format('d/m/Y') }}</td>
-                <td>{{ $booking->shift->time }}</td>
-                <td><span class="badge text-bg-{{ $booking->status->class }}">{{ $booking->status->name }}</span></td>
-                <td>{{ $booking->name }} {{ $booking->surname }}</td>
-
-              </tr>
-            @endforeach
-          </tbody>
-        </table>
+  <div class="nav-align-top">
+    <ul class="nav nav-pills mb-4" role="tablist">
+      <li class="nav-item">
+        <button
+          type="button"
+          class="nav-link active"
+          role="tab"
+          data-bs-toggle="tab"
+          data-bs-target="#navs-pills-top-calendar"
+          aria-controls="navs-pills-top-calendar"
+          aria-selected="true">
+          <i class="icon-base bx bx-calendar"></i> {{ __('Calendar') }}
+        </button>
+      </li>
+      <li class="nav-item">
+        <button
+          type="button"
+          class="nav-link"
+          role="tab"
+          data-bs-toggle="tab"
+          data-bs-target="#navs-pills-top-table"
+          aria-controls="navs-pills-top-table"
+          aria-selected="false">
+          <i class="icon-base bx bx-list-ul"></i> {{ __('List') }}
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="navs-pills-top-calendar" role="tabpanel">
       </div>
+      <div class="tab-pane fade" id="navs-pills-top-table" role="tabpanel">
+        @if($agent->isDesktop())
+          <livewire:bookings.table />
+        @else
+          <livewire:bookings.list-group />
+        @endif
+      </div>
+    </div>
+  </div>
   </div>
 </div>
     </div>

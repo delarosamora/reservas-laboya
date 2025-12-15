@@ -2,19 +2,13 @@
 
 namespace App\Livewire\Bookings;
 
-use App\Models\Booking;
-use Livewire\Attributes\Computed;
+use Jenssegers\Agent\Agent;
 use Livewire\Component;
 
 class Index extends Component
 {
     public function render()
     {
-        return view('livewire.bookings.index');
-    }
-
-    #[Computed]
-    public function bookings(){
-      return Booking::orderBy('date', 'desc')->get();
+        return view('livewire.bookings.index')->with('agent', new Agent());
     }
 }
