@@ -29,6 +29,7 @@
           <i class="icon-base bx bx-calendar"></i> {{ __('Calendar') }}
         </button>
       </li>
+      @if($agent->isDesktop())
       <li class="nav-item">
         <button
           type="button"
@@ -38,21 +39,37 @@
           data-bs-target="#navs-pills-top-table"
           aria-controls="navs-pills-top-table"
           aria-selected="false">
+          <i class="icon-base bx bx-table"></i> {{ __('Table') }}
+        </button>
+      </li>
+      @else
+      <li class="nav-item">
+        <button
+          type="button"
+          class="nav-link"
+          role="tab"
+          data-bs-toggle="tab"
+          data-bs-target="#navs-pills-top-list"
+          aria-controls="navs-pills-top-list"
+          aria-selected="false">
           <i class="icon-base bx bx-list-ul"></i> {{ __('List') }}
         </button>
       </li>
+      @endif
     </ul>
     <div class="tab-content p-1">
       <div class="tab-pane fade show active" id="navs-pills-top-calendar" role="tabpanel">
         <livewire:bookings.admin-calendar week-starts-at="1" :day-click-enabled="false" :drag-and-drop-enabled="false" before-calendar-view="partials/before-calendar-view" />
       </div>
+      @if($agent->isDesktop())
       <div class="tab-pane fade" id="navs-pills-top-table" role="tabpanel">
-        @if($agent->isDesktop())
-          <livewire:bookings.table />
-        @else
-          <livewire:bookings.list-group />
-        @endif
+        <livewire:bookings.table />
       </div>
+      @else
+      <div class="tab-pane fade" id="navs-pills-top-list" role="tabpanel">
+        <livewire:bookings.list-group />
+      </div>
+      @endif
     </div>
   </div>
   </div>

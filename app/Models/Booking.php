@@ -56,4 +56,8 @@ class Booking extends Model
     public function isCancelled(){
       return $this->status_id == BookingStatus::CANCELLED;
     }
+
+    public function getFullNameAttribute(){
+      return $this->name . ' ' . $this->surname;
+    }
 }
