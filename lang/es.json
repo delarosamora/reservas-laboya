@@ -27,6 +27,7 @@
   "Confirm Password" : "Confirmar contraseña",
   "Consult my booking status" : "Consultar el estado de mi reserva",
   "Create booking" : "Crear reserva",
+  "Create holiday" : "Crear día de vacaciones",
   "Created date" : "Fecha de creación",
   "Current password" : "Contraseña actual",
   "Date" : "Fecha",
@@ -130,5 +131,5 @@
   "Welcome to :app!" : "¡Bienvenido a :app!",
   "We are pleased to inform you that your booking has been confirmed. Thank you for choosing our services. Please feel free to contact us if you need any further assistance." : "Nos complace informarte que tu reserva ha sido confirmada. Gracias por elegir nuestros servicios. Por favor, no dudes en contactarnos si necesitas ayuda adicional.",
   "We have received your booking request. It is currently under review. We will notify you as soon as it has been confirmed." : "Hemos recibido tu solicitud de reserva. Actualmente está en revisión. Te notificaremos tan pronto como haya sido confirmada.",
-  "We would like to inform you that your booking has been canceled. Should you require further assistance or wish to make a new booking, we will be happy to help." : "Nos gustaría informarte que tu reserva ha sido cancelada. Si necesitas asistencia adicional o deseas hacer una nueva reserva, estaremos encantados de ayudarte.."
+  "We would like to inform you that your booking has been canceled. Should you require further assistance or wish to make a new booking, we will be happy to help." : "Nos gustaría informarte que tu reserva ha sido cancelada. Si necesitas asistencia adicional o deseas hacer una nueva reserva, estaremos encantados de ayudarte."
 }

@@ -6,39 +6,31 @@ use App\Models\Booking;
 use Carbon\Carbon;
 use Livewire\Component;
 use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
+use Illuminate\Support\Arr;
 use Jenssegers\Agent\Agent;
 
 class Dashboard extends Component
 {
     public function render()
     {
-      $year = Carbon::now()->year;
+      Carbon::setLocale('es');
+      $now = Carbon::now();
+      $months = [$now->copy()->subMonths(2), $now->copy()->subMonth(), $now, $now->copy()->addMonth(), $now->copy()->addMonths(2)];
+      $labels = Arr::map($months, fn($month) => $month->shortMonthName . ' ' . $month->year);
+      $data = Arr::map($months, fn($month) => Booking::whereYear('date', $month->year)->whereMonth('date', $month->month)->count());
       $agent = new Agent();
     $chart = Chartjs::build()
             ->name('barChartTest')
             ->type('bar')
             ->size(['width' => 300, 'height' => $agent->isDesktop() ? 100 : 300])
-            ->labels([__('January'), __('February'), __('March'), __('April'), __('May'), __('June'), __('July'), __('August'), __('September'), __('October'), __('November'), __('December')])
+            ->labels($labels)
             ->datasets([
                 [
                     "label" => __('Bookings'),
                     'backgroundColor' => '#696cff57',
                     'borderColor' => '#696cff',
                     'borderWidth' => 5,
-                    'data' => [
-                      Booking::whereYear('date', $year)->whereMonth('date', 1)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 2)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 3)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 4)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 5)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 6)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 7)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 8)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 9)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 10)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 11)->count(),
-                      Booking::whereYear('date', $year)->whereMonth('date', 12)->count(),
-                    ]
+                    'data' => $data
                 ],
             ])
             ;

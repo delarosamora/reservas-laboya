@@ -15,34 +15,11 @@
       <h5 class="mb-0">{{ __('Holidays') }}</h5>
   </div>
   <div class="card-body">
-      <div class="table-responsive">
-        <table class="table mb-0">
-          <thead>
-            <tr>
-              <th>{{ __('Actions') }}</th>
-              <th>{{ __('Date') }}</th>
-              <th>{{ __('Description') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($this->holidays as $holiday)
-              <tr>
-                <td>
-                  <div class="dropdown">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="icon-base bx bx-dots-vertical-rounded"></i></button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="{{ route('admin.holidays.show', $holiday) }}" wire:navigate><i class="icon-base bx bx-show me-1"></i>{{ __('View') }}</a>
-                      <a class="dropdown-item" href="{{ route('admin.holidays.edit', $holiday) }}" wire:navigate><i class="icon-base bx bx-edit-alt me-1"></i>{{ __('Edit') }}</a>
-                    </div>
-                  </div>
-                </td>
-                <td>{{ $holiday->date->format('d-m-Y') }}</td>
-                <td>{{ $holiday->description }}</td>
-              </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
+    @if($agent->isDesktop())
+      <livewire:holidays.table />
+    @else
+      <livewire:holidays.list-group />
+    @endif
   </div>
 </div>
     </div>

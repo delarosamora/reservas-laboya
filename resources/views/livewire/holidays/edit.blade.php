@@ -14,7 +14,7 @@
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center" >
             <h5 class="mb-0">{{ __('Edit holiday') }}</h5>
-            <small class="text-body float-end">{{ $holiday->date }}</small>
+            <small class="text-body float-end">{{ $holiday->date->format('d/m/Y') }}</small>
         </div>
         <div class="card-body" >
           <livewire:holidays.form :holiday="$holiday" />
