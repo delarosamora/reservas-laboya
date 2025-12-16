@@ -1,4 +1,14 @@
 <div>
+    <div class="row mb-4">
+    <div class="col">
+    <div class="input-group input-group-merge">
+      <span class="input-group-text" id="search-label"><i
+          class="icon-base bx bx-search"></i></span>
+          <x-forms.text-input id="search" name="search" wire:model.live="search" placeholder="{{ __('Search') }}..." aria-label="{{ __('Search') }}..."
+        aria-describedby="search-label" />
+    </div>
+    </div>
+  </div>
       <div class="table-responsive">
         <table class="table mb-0">
           <thead>

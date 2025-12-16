@@ -8,6 +8,8 @@ use Livewire\Component;
 
 class ListGroup extends Component
 {
+
+    public ?string $search = '';
     public function render()
     {
         return view('livewire.bookings.list-group');
@@ -15,6 +17,13 @@ class ListGroup extends Component
 
     #[Computed]
     public function bookings(){
-      return Booking::orderBy('date', 'desc')->get();
+      $search = $this->search;
+      return Booking::orderBy('date', 'desc')
+      ->where('name', 'like', "%$search%")
+      ->orWhere('surname', 'like', "%$search%")
+      ->orWhere('email', 'like', "%$search%")
+      ->orWhere('phone', 'like', "%$search%")
+      ->orWhere('nif', 'like', "%$search%")
+      ->get();
     }
 }

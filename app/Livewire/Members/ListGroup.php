@@ -8,6 +8,8 @@ use Livewire\Component;
 
 class ListGroup extends Component
 {
+
+    public ?string $search = '';
     public function render()
     {
         return view('livewire.members.list-group');
@@ -15,6 +17,13 @@ class ListGroup extends Component
 
     #[Computed]
     public function members(){
-      return Member::orderBy('number')->get();
+      $search = $this->search;
+      return Member::orderBy('number')
+      ->where('name', 'like', "%$search%")
+      ->orWhere('surname', 'like', "%$search%")
+      ->orWhere('email', 'like', "%$search%")
+      ->orWhere('phone', 'like', "%$search%")
+      ->orWhere('nif', 'like', "%$search%")
+      ->get();
     }
 }

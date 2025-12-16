@@ -8,6 +8,7 @@ use Livewire\Component;
 
 class Table extends Component
 {
+  public ?string $search = '';
     public function render()
     {
         return view('livewire.bookings.table');
@@ -15,6 +16,13 @@ class Table extends Component
 
     #[Computed]
     public function bookings(){
-      return Booking::orderBy('date', 'desc')->get();
+            $search = $this->search;
+      return Booking::orderBy('date', 'desc')
+      ->where('name', 'like', "%$search%")
+      ->orWhere('surname', 'like', "%$search%")
+      ->orWhere('email', 'like', "%$search%")
+      ->orWhere('phone', 'like', "%$search%")
+      ->orWhere('nif', 'like', "%$search%")
+      ->get();
     }
 }
