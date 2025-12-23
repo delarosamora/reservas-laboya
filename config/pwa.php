@@ -22,7 +22,7 @@ return [
         'name' => 'Reservas La Boya',
         'short_name' => 'La Boya',
         'background_color' => '#6777ef',
-        'display' => 'fullscreen',
+        'display' => 'standalone',
         'description' => 'Reserva tu espacio en la sociedad de forma rápida y disfruta sin complicaciones.',
         'theme_color' => '#6777ef',
         'icons' => [
