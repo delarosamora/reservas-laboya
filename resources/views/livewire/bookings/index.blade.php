@@ -59,7 +59,7 @@
     </ul>
     <div class="tab-content p-1">
       <div class="tab-pane fade show active" id="navs-pills-top-calendar" role="tabpanel">
-        <livewire:bookings.admin-calendar week-starts-at="1" :day-click-enabled="false" :drag-and-drop-enabled="false" before-calendar-view="partials/before-calendar-view" />
+        <livewire:bookings.admin-calendar week-starts-at="1" :day-click-enabled="false" :drag-and-drop-enabled="false" />
       </div>
       @if($agent->isDesktop())
       <div class="tab-pane fade" id="navs-pills-top-table" role="tabpanel">

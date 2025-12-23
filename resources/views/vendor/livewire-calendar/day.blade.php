@@ -5,7 +5,7 @@
     ondragover="onLivewireCalendarEventDragOver(event);"
     ondrop="onLivewireCalendarEventDrop(event, '{{ $componentId }}', '{{ $day }}', {{ $day->year }}, {{ $day->month }}, {{ $day->day }}, '{{ $dragAndDropClasses }}');"
     class="border-end border-bottom flex-shrink-0"
-    style="width: 14.2857%; min-height: 12rem;">
+    style="width: 14.2857%; min-height: 6rem;">
     {{-- Eliminamos 'col' y fijamos el ancho para 1/7 --}}
 
     {{-- Wrapper for Drag and Drop --}}

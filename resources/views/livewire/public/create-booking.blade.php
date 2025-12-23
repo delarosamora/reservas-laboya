@@ -12,9 +12,27 @@
       <h5 class="mb-0">{{ __('Create booking') }}</h5>
     </div>
     <div class="card-body">
-      @if (is_null($date))
-      <h5 class="mb-0">{{ __('Select a date') }}</h5>
-        <livewire:bookings.public-calendar week-starts-at="1" :event-click-enabled="false" :drag-and-drop-enabled="false" before-calendar-view="partials/before-calendar-view" />
+      @if ($showCalendar)
+        @if($agent->isDesktop())
+          <h5 class="mb-0">{{ __('Select a date') }}</h5>
+          <livewire:bookings.public-calendar week-starts-at="1" :event-click-enabled="false" :drag-and-drop-enabled="false" />
+        @else
+          <div class="modal d-block" id="fullscreenModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalFullTitle">{{ __('Select a date') }}</h5>
+                </div>
+                <div class="modal-body p-0">
+                  <livewire:bookings.public-calendar week-starts-at="1" :event-click-enabled="false" :drag-and-drop-enabled="false" />
+                </div>
+                <div class="modal-footer">
+                  <a href="{{ route('home') }}" class="btn btn-secondary mt-4" wire:navigate><i class="menu-icon tf-icons bx bx-arrow-back"></i> {{ __('Back') }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        @endif
       @else
 
         <form wire:submit="save">

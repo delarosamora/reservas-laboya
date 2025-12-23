@@ -9,6 +9,7 @@ use App\Models\Member;
 use App\Models\Shift;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use Jenssegers\Agent\Agent;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
@@ -51,6 +52,8 @@ class CreateBooking extends Component
   #[Validate('nullable|string')]
   public ?string $observations;
 
+  public bool $showCalendar = true;
+
   #[Computed]
   public function shifts(){
     return Shift::all();
@@ -58,17 +61,19 @@ class CreateBooking extends Component
 
   public function render()
   {
-      return view('livewire.public.create-booking')->extends('components.layouts.public')->section('content');
+      return view('livewire.public.create-booking')
+      ->with('agent', new Agent())->extends('components.layouts.public')->section('content');
   }
 
   #[On('date-selected')]
   public function updateDate($date)
   {
       $this->date = $date;
+      $this->showCalendar = false;
   }
 
   public function changeDate(){
-    $this->date = null;
+    $this->showCalendar = true;
   }
 
   #[Computed]
