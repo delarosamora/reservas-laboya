@@ -33,6 +33,7 @@
     <!-- / Include Scripts -->
 
     @include('partials.toast')
+    @include('partials.pwa')
     @RegisterServiceWorkerScript
   </body>
 </html>

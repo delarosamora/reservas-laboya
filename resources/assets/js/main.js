@@ -14,6 +14,34 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 (function () {
+  let deferredPrompt;
+  const btnInstall = document.getElementById('btn-install-pwa');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+      // Evita que Chrome muestre su propio aviso
+      e.preventDefault();
+      deferredPrompt = e;
+
+      // Mostramos nuestro botón de Bootstrap quitando la clase 'd-none'
+      btnInstall.classList.remove('d-none');
+  });
+
+  btnInstall.addEventListener('click', async () => {
+      if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+
+          if (outcome === 'accepted') {
+              btnInstall.classList.add('d-none');
+          }
+          deferredPrompt = null;
+      }
+  });
+
+  // Ocultar si ya está instalada
+  window.addEventListener('appinstalled', () => {
+      btnInstall.classList.add('d-none');
+  });
   // Initialize menu
   //-----------------
 
