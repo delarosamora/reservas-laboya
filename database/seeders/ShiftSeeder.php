@@ -18,7 +18,7 @@ class ShiftSeeder extends Seeder
         );
 
         Shift::updateOrCreate(
-          ['time' => '21:00']
+          ['time' => '20:00']
         );
     }
 }
