@@ -98,7 +98,7 @@ class CreateBooking extends Component
 
     try{
 
-        $booking = Booking::create($this->all());
+        $booking = Booking::create($this->except('showCalendar'));
         $booking->save();
 
         $booking->sendNotification();
