@@ -4,7 +4,7 @@
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title"><i class="menu-icon tf-icons bx bx-restaurant"></i> {{ __('Bookings') }}</h5>
-          <h6 class="card-title mb-2">{{ \App\Models\Booking::count() }}</h6>
+          <h6 class="card-title mb-2">{{ \App\Models\Booking::whereNot('status_id', \App\Models\BookingStatus::CANCELLED)->count() }}</h6>
           <p class="card-text">{{ __('Manage and review all your active bookings.') }}</p>
           <a href="{{ route('admin.bookings.index') }}" class="btn btn-primary" wire:navigate>{{ __('View all') }}</a>
         </div>
