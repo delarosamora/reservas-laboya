@@ -147,7 +147,8 @@ new #[Layout('components.layouts.auth')] class extends Component {
         </div>
 
         <div class="mb-6">
-            <button type="submit" class="btn btn-primary d-grid w-100">{{ __('Login') }}</button>
+            <button type="submit" class="btn btn-primary d-grid w-100 mb-4">{{ __('Login') }}</button>
+            <a href="{{ route('home') }}" class="btn btn-secondary w-100" wire:navigate><i class="menu-icon tf-icons bx bx-arrow-back"></i> {{ __('Back') }}</a>
         </div>
     </form>
 
