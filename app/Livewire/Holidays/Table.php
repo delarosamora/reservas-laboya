@@ -3,11 +3,14 @@
 namespace App\Livewire\Holidays;
 
 use App\Models\Holiday;
+use App\Traits\DeleteHoliday;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 class Table extends Component
 {
+
+  use DeleteHoliday;
 
     public ?string $search = '';
     public function render()

@@ -21,6 +21,7 @@
           <div class="col-2">
             <a class="btn btn-primary btn-sm" href="{{ route('admin.holidays.show', $holiday) }}" wire:navigate><i class="icon-base bx bx-show me-1"></i></a>
             <a class="btn btn-warning btn-sm" href="{{ route('admin.holidays.edit', $holiday) }}" wire:navigate><i class="icon-base bx bx-edit-alt me-1"></i></a>
+            <button class="btn btn-danger btn-sm" wire:click="delete({{$holiday}})" wire:confirm="{{ __('Are you sure?') }}"><i class="icon-base bx bx-trash me-1"></i></button>
           </div>
         </div>
       </div>

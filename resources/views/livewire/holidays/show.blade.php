@@ -8,6 +8,7 @@
     <div class="col text-end">
       <a href="{{ route('admin.holidays.index') }}" class="btn btn-secondary" wire:navigate><i class="menu-icon tf-icons bx bx-arrow-back"></i> {{ __('Back') }}</a>
       <a href="{{ route('admin.holidays.edit', $holiday) }}" class="btn btn-warning" wire:navigate><i class="menu-icon tf-icons bx bx-edit-alt"></i> {{ __('Edit') }}</a>
+      <button class="btn btn-danger" wire:click="delete({{$holiday}})" wire:confirm="{{ __('Are you sure?') }}"><i class="menu-icon tf-icons bx bx-trash"></i> {{ __('Delete') }}</button>
     </div>
   </div>
   <div class="row">

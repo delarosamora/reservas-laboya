@@ -27,6 +27,7 @@
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="{{ route('admin.holidays.show', $holiday) }}" wire:navigate><i class="icon-base bx bx-show me-1"></i>{{ __('View') }}</a>
                       <a class="dropdown-item" href="{{ route('admin.holidays.edit', $holiday) }}" wire:navigate><i class="icon-base bx bx-edit-alt me-1"></i>{{ __('Edit') }}</a>
+                      <button class="dropdown-item" wire:click="delete({{$holiday}})" wire:confirm="{{ __('Are you sure?') }}"><i class="icon-base bx bx-trash me-1"></i>{{ __('Delete') }}</button>
                     </div>
                   </div>
                 </td>
