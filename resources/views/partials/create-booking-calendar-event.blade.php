@@ -1,5 +1,5 @@
 <div
-    @if($eventClickEnabled)
+    @if($eventClickEnabled && Arr::get($event, 'holiday', false))
         wire:click.stop="onEventClick('{{ $event['id']  }}')"
     @endif
     class="card shadow-sm border border-secondary rounded-3 p-2 mb-1 @if (Arr::get($event, 'holiday', false)) text-bg-danger @endif"
