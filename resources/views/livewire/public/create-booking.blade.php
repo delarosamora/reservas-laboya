@@ -15,7 +15,7 @@
       @if ($showCalendar)
         @if($agent->isDesktop())
           <h5 class="mb-0">{{ __('Select a date') }}</h5>
-          <livewire:bookings.public-calendar week-starts-at="1" :event-click-enabled="true" :drag-and-drop-enabled="false" event-view="partials/create-booking-calendar-event" />
+          <livewire:bookings.public-calendar week-starts-at="1" :event-click-enabled="true" :drag-and-drop-enabled="false" event-view="partials/create-booking-calendar-event" day-view="partials/create-booking-calendar-day" />
         @else
           <div class="modal d-block" id="fullscreenModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen" role="document">
@@ -24,7 +24,7 @@
                   <h5 class="modal-title" id="modalFullTitle">{{ __('Select a date') }}</h5>
                 </div>
                 <div class="modal-body p-0">
-                  <livewire:bookings.public-calendar week-starts-at="1" :event-click-enabled="true" :drag-and-drop-enabled="false" event-view="partials/create-booking-calendar-event" />
+                  <livewire:bookings.public-calendar week-starts-at="1" :event-click-enabled="true" :drag-and-drop-enabled="false" event-view="partials/create-booking-calendar-event" day-view="partials/create-booking-calendar-day" />
                 </div>
                 <div class="modal-footer">
                   <a href="{{ route('home') }}" class="btn btn-secondary mt-4" wire:navigate><i class="menu-icon tf-icons bx bx-arrow-back"></i> {{ __('Back') }}</a>
