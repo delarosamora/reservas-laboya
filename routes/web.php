@@ -19,6 +19,7 @@ use App\Livewire\Public\ConsultBookingStatus;
 use App\Livewire\Public\CreateBooking as PublicCreateBooking;
 use App\Livewire\Public\EditBooking as PublicEditBooking;
 use App\Livewire\Public\ShowBooking as PublicShowBooking;
+use App\Livewire\Public\ShowHoliday as PublicShowHoliday;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -30,6 +31,8 @@ Route::get('create-booking', PublicCreateBooking::class)->name('createBooking');
 Route::get('consult-booking-status', ConsultBookingStatus::class)->name('consultBookingStatus');
 Route::get('show-booking/{booking}', PublicShowBooking::class)->name('showBooking');
 Route::get('edit-booking/{booking}', PublicEditBooking::class)->name('editBooking');
+
+Route::get('show-holiday/{holiday}', PublicShowHoliday::class)->name('showHoliday');
 
 Route::get('dashboard', Dashboard::class)
   ->middleware(['auth', 'verified'])
