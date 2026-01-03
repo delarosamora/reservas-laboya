@@ -33,6 +33,13 @@ abstract class Calendar extends LivewireCalendar
       ];
     });
 
+    if ($bookings->isEmpty()){
+      return $holidays;
+    }
+    if ($holidays->isEmpty()){
+      return $bookings;
+    }
+
     return $bookings->merge($holidays);
   }
 }
