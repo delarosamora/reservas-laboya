@@ -7,7 +7,7 @@
       <a href="{{ route('home') }}" class="btn btn-secondary" wire:navigate><i class="menu-icon tf-icons bx bx-arrow-back"></i> {{ __('Back') }}</a>
       @if($booking->isNotCancelled())
         <a href="{{ route('editBooking', $booking) }}" class="btn btn-warning" wire:navigate><i class="menu-icon tf-icons bx bx-edit-alt"></i> {{ __('Edit') }}</a>
-        <button class="btn btn-danger" wire:click="cancel" wire:confirm="{{ __('Are you sure?') }}"><i class="menu-icon tf-icons bx bx-x-circle"></i> {{ __('Cancel') }}</button>
+        <button class="btn btn-danger" wire:click="cancel" wire:confirm.prompt="{{ __('Are you sure? Type the member number to confirm') }}|{{ $booking->member_number }}"><i class="menu-icon tf-icons bx bx-x-circle"></i> {{ __('Cancel') }}</button>
       @endif
     </div>
   </div>
