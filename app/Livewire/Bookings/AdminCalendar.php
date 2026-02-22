@@ -7,10 +7,9 @@ use Illuminate\Support\Arr;
 class AdminCalendar extends Calendar
 {
 
-  public function onEventClick($eventId)
+  public function onEventClick($eventId, $holiday = false)
   {
-      $event = Arr::first($this->events(), fn ($event) => $event['id'] == $eventId);
-      if (Arr::get($event, 'holiday', false)){
+      if ($holiday){
         $this->redirectRoute('admin.holidays.show', $eventId, true, true);
       }
       else{

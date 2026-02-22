@@ -18,17 +18,14 @@ class PublicCalendar extends Calendar
         $this->extras = $extras;
     }
 
-  public function onEventClick($eventId)
+  public function onEventClick($eventId, $holiday = false)
   {
-    $event = Arr::first($this->events(), fn ($event) => $event['id'] == $eventId);
-
-    if (Arr::get($event, 'holiday', false)){
+    if ($holiday){
       $this->redirectRoute('showHoliday', $eventId, true, true);
     }
     else{
       $this->redirectRoute('showBooking', $eventId, true, true);
     }
-
   }
 
   public function onDayClick($year, $month, $day)
