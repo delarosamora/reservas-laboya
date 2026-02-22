@@ -11,9 +11,9 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
     $trail->push(__('Home'), route('home'));
 });
 
-Breadcrumbs::for('showHoliday', function (BreadcrumbTrail $trail, Holiday $holiday) {
+Breadcrumbs::for('consultBookingStatus', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('Show holiday') , route('showHoliday', $holiday));
+    $trail->push(__('Consult my booking status') , route('consultBookingStatus'));
 });
 
 Breadcrumbs::for('createBooking', function (BreadcrumbTrail $trail) {
@@ -22,18 +22,18 @@ Breadcrumbs::for('createBooking', function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for('showBooking', function (BreadcrumbTrail $trail, Booking $booking) {
-    $trail->parent('home');
+    $trail->parent('consultBookingStatus');
     $trail->push(__('Show booking') , route('showBooking', $booking));
+});
+
+Breadcrumbs::for('showHoliday', function (BreadcrumbTrail $trail, Holiday $holiday) {
+    $trail->parent('consultBookingStatus');
+    $trail->push(__('Show holiday') , route('showHoliday', $holiday));
 });
 
 Breadcrumbs::for('editBooking', function (BreadcrumbTrail $trail, Booking $booking) {
     $trail->parent('showBooking', $booking);
     $trail->push(__('Edit booking') , route('editBooking', $booking));
-});
-
-Breadcrumbs::for('consultBookingStatus', function (BreadcrumbTrail $trail) {
-    $trail->parent('home');
-    $trail->push(__('Consult my booking status') , route('consultBookingStatus'));
 });
 
 Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
