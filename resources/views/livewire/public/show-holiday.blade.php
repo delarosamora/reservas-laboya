@@ -4,7 +4,7 @@
       @include('partials.breadcrumbs')
     </div>
     <div class="col text-end">
-      <a href="{{ route('home') }}" class="btn btn-secondary" wire:navigate><i class="menu-icon tf-icons bx bx-arrow-back"></i> {{ __('Back') }}</a>
+      <a href="{{ route('consultBookingStatus') }}" class="btn btn-secondary" wire:navigate><i class="menu-icon tf-icons bx bx-arrow-back"></i> {{ __('Back') }}</a>
     </div>
   </div>
   <div class="card my-5">
