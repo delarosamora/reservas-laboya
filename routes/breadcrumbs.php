@@ -11,6 +11,11 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
     $trail->push(__('Home'), route('home'));
 });
 
+Breadcrumbs::for('tutorials', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Tutorials') , route('tutorials'));
+});
+
 Breadcrumbs::for('consultBookingStatus', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(__('Consult my booking status') , route('consultBookingStatus'));

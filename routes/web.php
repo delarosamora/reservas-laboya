@@ -20,6 +20,7 @@ use App\Livewire\Public\CreateBooking as PublicCreateBooking;
 use App\Livewire\Public\EditBooking as PublicEditBooking;
 use App\Livewire\Public\ShowBooking as PublicShowBooking;
 use App\Livewire\Public\ShowHoliday as PublicShowHoliday;
+use App\Livewire\Public\Tutorials;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -27,6 +28,7 @@ Route::get('/', function () {
   return view('welcome');
 })->name('home');
 
+Route::get('tutorials', Tutorials::class)->name('tutorials');
 Route::get('create-booking', PublicCreateBooking::class)->name('createBooking');
 Route::get('consult-booking-status', ConsultBookingStatus::class)->name('consultBookingStatus');
 Route::get('show-booking/{booking}', PublicShowBooking::class)->name('showBooking');
