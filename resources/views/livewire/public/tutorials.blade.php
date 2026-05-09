@@ -13,16 +13,29 @@
     </div>
     <div class="card-body">
 <div class="accordion" id="tutorials">
-  <div class="accordion-item active">
+  <div class="accordion-item">
     <h2 class="accordion-header" id="radiator-heading">
       <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#radiator" aria-expanded="true" aria-controls="radiator">
         {{ __('Turn on and turn off radiator') }}
       </button>
     </h2>
 
-    <div id="radiator" class="accordion-collapse collapse show" aria-labelledby="radiator-heading" data-bs-parent="#tutorials">
+    <div id="radiator" class="accordion-collapse collapse" aria-labelledby="radiator-heading" data-bs-parent="#tutorials">
       <div class="accordion-body">
         <video controls class="mw-100" src="{{ asset('assets/video/radiator-tutorial.mp4') }}"></video>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="cash-heading">
+      <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#cash" aria-expanded="true" aria-controls="cash">
+        {{ __('Cash register') }}
+      </button>
+    </h2>
+
+    <div id="cash" class="accordion-collapse collapse" aria-labelledby="cash-heading" data-bs-parent="#tutorials">
+      <div class="accordion-body">
+        <video controls class="mw-100" src="{{ asset('assets/video/cash-register.mp4') }}"></video>
       </div>
     </div>
   </div>
