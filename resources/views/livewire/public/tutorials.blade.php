@@ -39,6 +39,21 @@
       </div>
     </div>
   </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="crusher-heading">
+      <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#crusher" aria-expanded="true" aria-controls="crusher">
+        {{ __('Crusher') }}
+      </button>
+    </h2>
+
+    <div id="crusher" class="accordion-collapse collapse" aria-labelledby="crusher-heading" data-bs-parent="#tutorials">
+      <div class="accordion-body">
+        <video controls class="mw-100" src="{{ asset('assets/video/crusher.mp4') }}"></video>
+      </div>
+    </div>
+  </div>
+
 </div>
     </div>
   </div>
