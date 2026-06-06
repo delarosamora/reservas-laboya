@@ -4,6 +4,7 @@ namespace App\Ai\Tools;
 
 use App\Models\Booking;
 use Illuminate\Contracts\JsonSchema\JsonSchema;
+use Illuminate\Support\Facades\Log;
 use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Tools\Request;
 use Stringable;
@@ -26,9 +27,13 @@ class SearchAllBookings implements Tool
     {
         try{
 
-          return json_encode(Booking::all()->map(fn($booking) => ['date' => $booking->date->format('d/m/Y'), 'shift' => $booking->shift->time, 'status' => $booking->status->name, 'number_of_guests' => $booking->number_of_guests, 'observations' => $booking->observations])->toArray());
+          $bookings = Booking::with(['shift', 'status'])->get();
+
+          return json_encode($bookings->map(fn($booking) => ['date' => $booking->date->format('d/m/Y'), 'shift' => $booking->shift->time, 'status' => $booking->status->name, 'number_of_guests' => $booking->number_of_guests, 'observations' => $booking->observations])->toArray());
 
         }catch(Throwable $e){
+          Log::error($e->getMessage());
+          Log::error($e->getTraceAsString());
           return json_encode(['success' => false, 'error' => 'error', 'message' => 'Error']);
         }
     }

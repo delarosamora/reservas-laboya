@@ -5,6 +5,7 @@ namespace App\Ai\Tools;
 use App\Models\Booking;
 use Illuminate\Contracts\JsonSchema\JsonSchema;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Log;
 use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Tools\Request;
 use Stringable;
@@ -43,6 +44,8 @@ class SearchBookingByCode implements Tool
         }catch(ModelNotFoundException $e){
           return json_encode(['success' => false, 'error' => 'not_found', 'message' => 'Socio no encontrado']);
         }catch(Throwable $e){
+          Log::error($e->getMessage());
+          Log::error($e->getTraceAsString());
           return json_encode(['success' => false, 'error' => 'error', 'message' => 'Error']);
         }
     }

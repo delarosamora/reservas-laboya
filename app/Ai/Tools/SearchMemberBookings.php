@@ -4,6 +4,7 @@ namespace App\Ai\Tools;
 
 use App\Models\Booking;
 use Illuminate\Contracts\JsonSchema\JsonSchema;
+use Illuminate\Support\Facades\Log;
 use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Tools\Request;
 use Stringable;
@@ -29,6 +30,8 @@ class SearchMemberBookings implements Tool
           return json_encode(Booking::where('member_number', $request['member_number'])->get()->map(fn($booking) => ['date' => $booking->date->format('d/m/Y'), 'shift' => $booking->shift->time, 'status' => $booking->status->name, 'number_of_guests' => $booking->number_of_guests, 'observations' => $booking->observations])->toArray());
 
         }catch(Throwable $e){
+          Log::error($e->getMessage());
+          Log::error($e->getTraceAsString());
           return json_encode(['success' => false, 'error' => 'error', 'message' => 'Error']);
         }
     }

@@ -62,10 +62,10 @@ Para interactuar con el sistema de base de datos, dispones de herramientas (tool
     public function tools(): iterable
     {
         return [
-          SearchAllBookings::class,
-          SearchBookingByCode::class,
-          SearchMemberBookings::class,
-          SearchMemberByNumber::class,
+          new SearchAllBookings,
+          new SearchBookingByCode,
+          new SearchMemberBookings,
+          new SearchMemberByNumber
         ];
     }
 }

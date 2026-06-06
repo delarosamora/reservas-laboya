@@ -15,6 +15,7 @@ use App\Livewire\Members\Create as CreateMember;
 use App\Livewire\Members\Index as IndexMember;
 use App\Livewire\Members\Show as ShowMember;
 use App\Livewire\Members\Edit as EditMember;
+use App\Livewire\Public\AIAgent;
 use App\Livewire\Public\ConsultBookingStatus;
 use App\Livewire\Public\CreateBooking as PublicCreateBooking;
 use App\Livewire\Public\EditBooking as PublicEditBooking;
@@ -29,6 +30,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('tutorials', Tutorials::class)->name('tutorials');
+Route::get('ai-agent', AIAgent::class)->name('aiAgent');
 Route::get('create-booking', PublicCreateBooking::class)->name('createBooking');
 Route::get('consult-booking-status', ConsultBookingStatus::class)->name('consultBookingStatus');
 Route::get('show-booking/{booking}', PublicShowBooking::class)->name('showBooking');

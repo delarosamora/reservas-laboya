@@ -11,6 +11,11 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
     $trail->push(__('Home'), route('home'));
 });
 
+Breadcrumbs::for('ai-agent', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('AI Agent') , route('aiAgent'));
+});
+
 Breadcrumbs::for('tutorials', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(__('Tutorials') , route('tutorials'));
