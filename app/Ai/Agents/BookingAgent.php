@@ -9,6 +9,7 @@ use App\Ai\Tools\SearchAllHolidays;
 use App\Ai\Tools\SearchBookingByCode;
 use App\Ai\Tools\SearchMemberBookings;
 use App\Ai\Tools\SearchMemberByNumber;
+use App\Ai\Tools\UpdateBooking;
 use Laravel\Ai\Contracts\Agent;
 use Laravel\Ai\Contracts\Conversational;
 use Laravel\Ai\Contracts\HasTools;
@@ -102,7 +103,8 @@ Para interactuar con el sistema, dispones de herramientas (tools) específicas q
           new SearchAllHolidays,
           new SearchBookingByCode,
           new SearchMemberBookings,
-          new SearchMemberByNumber
+          new SearchMemberByNumber,
+          new UpdateBooking
         ];
     }
 }
