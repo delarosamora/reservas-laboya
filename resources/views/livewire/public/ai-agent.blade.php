@@ -33,6 +33,8 @@
                     <ul class="list-unstyled mb-0" style="gap: 0.5rem; display: flex; flex-direction: column;">
                         <li>📅 <strong>Crear una nueva reserva</strong> en los turnos disponibles.</li>
                         <li>🔍 <strong>Consultar tus reservas</strong> con tu número de socio o código.</li>
+                        <li>✏ <strong>Modificar reservas</strong> a otro turno y fecha disponible.</li>
+                        <li>❌ <strong>Cancelar una reserva</strong></li>
                         <li>🏖️ <strong>Ver el calendario de vacaciones</strong> de la asociación.</li>
                     </ul>
                 </div>
