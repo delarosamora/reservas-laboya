@@ -30,6 +30,7 @@ class SearchBookingByCode implements Tool
           $booking = Booking::where('code', $request['code'])->firstOrFail();
           return json_encode(
             [
+              'id' => $booking->id,
               'date' => $booking->date->format('d/m/Y'),
               'shift' => $booking->shift->time,
               'status' => $booking->status->name,
