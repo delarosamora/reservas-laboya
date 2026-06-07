@@ -18,7 +18,7 @@ class SearchMemberByNumber implements Tool
      */
     public function description(): Stringable|string
     {
-        return 'Obtener los detalles de un socio de la asociación, dado el número de socio';
+        return 'Consultar el perfil y datos personales (nombre, apellidos) de un socio usando su número de identificación.';
     }
 
     /**

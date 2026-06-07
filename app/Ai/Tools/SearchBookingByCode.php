@@ -31,13 +31,14 @@ class SearchBookingByCode implements Tool
           return json_encode(
             [
               'date' => $booking->date->format('d/m/Y'),
-              'shfit' => $booking->shift->time,
-              'status' => $booking->status->time,
+              'shift' => $booking->shift->time,
+              'status' => $booking->status->name,
               'name' => $booking->name,
               'surname' => $booking->surname,
               'member_number' => $booking->member_number,
               'number_of_guests' => $booking->number_of_guests,
               'observations' => $booking->observations,
+              'code' => $booking->code
             ]
           );
 

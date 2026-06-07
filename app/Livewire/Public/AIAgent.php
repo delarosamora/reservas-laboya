@@ -17,8 +17,6 @@ class AIAgent extends Component
 
   public array $messages = [];
 
-  public string|null $conversationId = null;
-
   public function sendMessage(): void
   {
     $userMessage = trim($this->input);
@@ -52,17 +50,9 @@ class AIAgent extends Component
     }
 
     try {
-        $agent = new BookingAgent;
+        $agent = new BookingAgent($this->messages);
 
-        if (is_null($this->conversationId)) {
-            $response = $agent->prompt($lastUserMessage['content']);
-
-            $this->conversationId = $response->conversationId;
-        } else {
-            $response = $agent
-                ->continue($this->conversationId)
-                ->prompt($lastUserMessage['content']);
-        }
+        $response = $agent->prompt($lastUserMessage['content']);
 
         $this->messages[] = [
             'role'    => 'assistant',

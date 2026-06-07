@@ -2,7 +2,7 @@
 
 namespace App\Ai\Tools;
 
-use App\Models\Booking;
+use App\Models\Holiday;
 use Illuminate\Contracts\JsonSchema\JsonSchema;
 use Illuminate\Support\Facades\Log;
 use Laravel\Ai\Contracts\Tool;
@@ -10,14 +10,14 @@ use Laravel\Ai\Tools\Request;
 use Stringable;
 use Throwable;
 
-class SearchMemberBookings implements Tool
+class SearchAllHolidays implements Tool
 {
     /**
      * Get the description of the tool's purpose.
      */
     public function description(): Stringable|string
     {
-        return 'Obtener el listado histórico de reservas asociadas a un número de socio específico.';
+        return 'Obtener todas las vacaciones de la asociación, cuando las instalaciones no podrán ser reservadas';
     }
 
     /**
@@ -27,7 +27,7 @@ class SearchMemberBookings implements Tool
     {
         try{
 
-          return json_encode(Booking::with(['shift', 'status'])->where('member_number', $request['member_number'])->get()->map(fn($booking) => ['date' => $booking->date->format('d/m/Y'), 'shift' => $booking->shift->time, 'status' => $booking->status->name, 'number_of_guests' => $booking->number_of_guests, 'observations' => $booking->observations])->toArray());
+          return json_encode(Holiday::all()->map(fn($holiday) => ['date' => $holiday->date->format('d/m/Y'), 'description' => $holiday->description])->toArray());
 
         }catch(Throwable $e){
           Log::error($e->getMessage());
@@ -41,8 +41,6 @@ class SearchMemberBookings implements Tool
      */
     public function schema(JsonSchema $schema): array
     {
-        return [
-            'member_number' => $schema->integer()->required(),
-        ];
+        return [];
     }
 }
