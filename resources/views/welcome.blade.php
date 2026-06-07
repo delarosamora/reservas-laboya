@@ -15,6 +15,7 @@
         </p>
         <a href="{{ route('createBooking') }}" class="btn btn-xl btn-primary my-2" wire:navigate>{{ __('Make a booking') }}</a>
         <a href="{{ route('consultBookingStatus') }}" class="btn btn-xl btn-primary my-2" wire:navigate>{{ __('Consult my booking status') }}</a>
+        <a href="{{ route('aiAgent') }}" class="btn btn-xl btn-info my-2" wire:navigate><i class="icon-base bx bx-star"></i> {{ __('AI Agent') }}</a>
         <a href="{{ route('tutorials') }}" class="btn btn-xl btn-info my-2" wire:navigate>{{ __('Tutorials') }}</a>
       </div>
     </div>
