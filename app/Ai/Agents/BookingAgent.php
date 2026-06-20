@@ -5,6 +5,7 @@ namespace App\Ai\Agents;
 use App\Ai\Tools\CancelBooking;
 use App\Ai\Tools\CreateBooking;
 use App\Ai\Tools\SearchAllBookings;
+use App\Ai\Tools\SearchAllFutureBookings;
 use App\Ai\Tools\SearchAllHolidays;
 use App\Ai\Tools\SearchBookingByCode;
 use App\Ai\Tools\SearchMemberBookings;
@@ -100,6 +101,7 @@ Para interactuar con el sistema, dispones de herramientas (tools) específicas q
           new CancelBooking,
           new CreateBooking,
           new SearchAllBookings,
+          new SearchAllFutureBookings,
           new SearchAllHolidays,
           new SearchBookingByCode,
           new SearchMemberBookings,

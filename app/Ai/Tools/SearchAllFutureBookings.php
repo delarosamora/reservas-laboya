@@ -3,6 +3,7 @@
 namespace App\Ai\Tools;
 
 use App\Models\Booking;
+use Carbon\Carbon;
 use Illuminate\Contracts\JsonSchema\JsonSchema;
 use Illuminate\Support\Facades\Log;
 use Laravel\Ai\Contracts\Tool;
@@ -10,14 +11,14 @@ use Laravel\Ai\Tools\Request;
 use Stringable;
 use Throwable;
 
-class SearchAllBookings implements Tool
+class SearchAllFutureBookings implements Tool
 {
     /**
      * Get the description of the tool's purpose.
      */
     public function description(): Stringable|string
     {
-        return 'Obtener todas las reservas de la asociación, útil para consultas, reportes o informes';
+        return 'Obtener todas las reservas futuras de la asociación, útil para comprobar disponibilidad cuando el usuario quiere realizar una reserva';
     }
 
     /**
@@ -27,7 +28,7 @@ class SearchAllBookings implements Tool
     {
         try{
 
-          $bookings = Booking::with(['shift', 'status'])->get();
+          $bookings = Booking::with(['shift', 'status'])->where('date', '>=', Carbon::now()->format('Y-m-d'))->get();
 
           return json_encode($bookings->map(fn($booking) => ['date' => $booking->date->format('d/m/Y'), 'shift' => $booking->shift->time, 'status' => $booking->status->name, 'number_of_guests' => $booking->number_of_guests, 'observations' => $booking->observations])->toArray());
 
