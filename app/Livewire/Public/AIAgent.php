@@ -4,6 +4,7 @@ namespace App\Livewire\Public;
 
 use App\Ai\Agents\BookingAgent;
 use Illuminate\Support\Facades\Log;
+use Laravel\Ai\Enums\Lab;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use Throwable;
@@ -52,7 +53,7 @@ class AIAgent extends Component
     try {
         $agent = new BookingAgent($this->messages);
 
-        $response = $agent->prompt($lastUserMessage['content']);
+        $response = $agent->prompt($lastUserMessage['content'], [], Lab::OpenRouter, 'openrouter/free');
 
         $this->messages[] = [
             'role'    => 'assistant',
