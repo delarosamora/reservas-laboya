@@ -53,7 +53,7 @@ class AIAgent extends Component
     try {
         $agent = new BookingAgent($this->messages);
 
-        $response = $agent->prompt($lastUserMessage['content'], [], Lab::OpenRouter, 'google/gemma-4-31b-it');
+        $response = $agent->prompt($lastUserMessage['content'], [], Lab::OpenRouter, 'google/gemma-4-31b-it:free');
 
         $this->messages[] = [
             'role'    => 'assistant',
