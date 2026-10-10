@@ -5,10 +5,17 @@
     </div>
     <div class="col text-end">
       <a href="{{ route('home') }}" class="btn btn-secondary" wire:navigate><i class="menu-icon tf-icons bx bx-arrow-back"></i> {{ __('Back') }}</a>
+      <a href="{{ route('createBooking') }}" class="btn btn-primary" wire:navigate><i class="menu-icon tf-icons bx bx-book-add"></i> {{ __('Create new booking') }}</a>
     </div>
   </div>
   <div class="card my-5">
       <div class="card-body">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 bg-warning bg-opacity-50 rounded p-2 mx-1 mb-2 justify-content-between text-center">
+        <div class="col"><strong>{{ __('Legend') }}</strong></div>
+        <div class="col"><strong><i class="icon-base bx bxs-circle text-primary"></i> {{ __('Pending Confirm') }}</strong></div>
+        <div class="col"><strong><i class="icon-base bx bxs-circle text-success"></i> {{ __('Confirmed') }}</strong></div>
+        <div class="col"><strong><i class="icon-base bx bxs-circle text-danger"></i> {{ __('Holiday') }}</strong></div>
+      </div>
         <h5 class="card-title">{{ __('Consult my booking status') }}</h5>
         @if($agent->isDesktop())
           <h6 class="mb-0">{{ __('Select a booking') }}</h6>

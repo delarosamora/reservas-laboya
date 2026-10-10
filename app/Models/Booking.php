@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Events\BookingNotificationEvent;
+use App\Services\BookingNeedsRevision;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -22,7 +23,7 @@ class Booking extends Model
     protected static function booted(): void
     {
         static::creating(function (Booking $booking) {
-            $booking->status_id = BookingStatus::CONFIRMED;
+            $booking->status_id = $booking->needsRevision() ? BookingStatus::PENDING_CONFIRM : BookingStatus::CONFIRMED;
             $booking->code = strtoupper(Str::random(8));
         });
     }
@@ -63,5 +64,9 @@ class Booking extends Model
 
     public function getFullNameAttribute(){
       return $this->name . ' ' . $this->surname;
+    }
+
+    public function needsRevision(){
+      return BookingNeedsRevision::run($this);
     }
 }

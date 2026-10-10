@@ -20,6 +20,7 @@ abstract class Calendar extends LivewireCalendar
         'title' => $booking->name . ' ' . $booking->surname,
         'description' => $booking->shift->time,
         'date' => $booking->date,
+        'status' => $booking->status_id,
       ];
     });
 

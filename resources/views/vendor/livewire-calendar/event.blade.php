@@ -2,11 +2,11 @@
     @if($eventClickEnabled)
         wire:click.stop="onEventClick('{{ $event['id']  }}', {{ $event['holiday'] ?? false }})"
     @endif
-    class="card shadow-sm border border-secondary rounded-3 p-2 mb-1 @if (Arr::get($event, 'holiday', false)) text-bg-danger @endif"
+    class="card shadow-sm border border-secondary rounded-3 p-2 mb-1 @if (Arr::get($event, 'holiday', false)) text-bg-danger @elseif(Arr::get($event, 'status', null) == \App\Models\BookingStatus::PENDING_CONFIRM) text-bg-primary @elseif(Arr::get($event, 'status', null) == \App\Models\BookingStatus::CONFIRMED) text-bg-success @endif"
     style="cursor: pointer;">
 
     {{-- Título del Evento --}}
-    <p class="small fw-bold mb-1 text-truncate @if (Arr::get($event, 'holiday', false)) @else text-dark @endif">
+    <p class="small fw-bold mb-1 text-truncate">
         {{ $event['title'] }}
     </p>
 

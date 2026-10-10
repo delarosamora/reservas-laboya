@@ -3,11 +3,13 @@
 namespace App\Listeners;
 
 use App\Events\BookingNotificationEvent;
+use App\Models\User;
 use App\Notifications\BookingCancelled;
 use App\Notifications\BookingConfirmed;
 use App\Notifications\BookingPendingConfirm;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Notification;
 
 class BookingNotificationListener
 {

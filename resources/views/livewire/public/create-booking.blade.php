@@ -13,6 +13,12 @@
     </div>
     <div class="card-body">
       @if ($showCalendar)
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 bg-warning bg-opacity-50 rounded p-2 mx-1 mb-2 justify-content-between text-center">
+          <div class="col"><strong>{{ __('Legend') }}</strong></div>
+          <div class="col"><strong><i class="icon-base bx bxs-circle text-primary"></i> {{ __('Pending Confirm') }}</strong></div>
+          <div class="col"><strong><i class="icon-base bx bxs-circle text-success"></i> {{ __('Confirmed') }}</strong></div>
+        <div class="col"><strong><i class="icon-base bx bxs-circle text-danger"></i> {{ __('Holiday') }}</strong></div>
+        </div>
         @if($agent->isDesktop())
           <h5 class="mb-0">{{ __('Select a date') }}</h5>
           <livewire:bookings.public-calendar week-starts-at="1" :event-click-enabled="true" :drag-and-drop-enabled="false" event-view="partials/create-booking-calendar-event" day-view="partials/create-booking-calendar-day" />

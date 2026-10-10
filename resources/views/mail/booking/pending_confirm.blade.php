@@ -3,7 +3,7 @@
 
 {{ __('Dear') }} {{ $notifiable->name }}
 
-{{ __('We have received your booking request. It is currently under review. We will notify you as soon as it has been confirmed.') }}
+{{ __('We have received your booking request, but it is NOT confirmed, probably due to the number of guests is elevated.') }}
 
 <x-mail::table>
 | {{ __('Date') }}                         | {{ __('Shift') }}              | {{ __('Number of guests') }}        | {{ __('Status') }}              | {{ __('Code') }}        |
