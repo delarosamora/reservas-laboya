@@ -35,6 +35,7 @@ class BookingPendingConfirm extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
+            ->cc(config('mail.from.address'))
             ->subject(__('Booking pending confirm'))
             ->markdown('mail.booking.pending_confirm', ['notifiable' => $notifiable]);
     }
