@@ -8,6 +8,7 @@ use App\Models\Holiday;
 use App\Models\Member;
 use App\Models\Shift;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Log;
 use Jenssegers\Agent\Agent;
 use Livewire\Attributes\Computed;
@@ -91,7 +92,29 @@ class CreateBooking extends Component
       return;
     }
 
-      if (Holiday::where('date', $this->date)->exists()){
+    $query = Booking::notCancelled()->where(function(Builder $builder){
+      $builder->where('member_number', $this->member_number)->orWhere('nif', $this->nif);
+    });
+
+    $selectedDate = Carbon::parse($this->date);
+    $today = today();
+    $ranges = [
+      [$selectedDate->copy()->subDays(30)->max($today), $selectedDate->copy()->subDays(30)->max($today)->copy()->addDays(30)],
+      [$selectedDate, $selectedDate->copy()->addDays(30)]
+    ];
+
+    if ($today->diffInDays($selectedDate) >= 15){
+      $ranges[] = [$selectedDate->copy()->subDays(15), $selectedDate->copy()->addDays(15)];
+    }
+
+    foreach($ranges as $range){
+      if ((clone $query)->whereBetween('date', $range)->count() >= 2){
+        $this->addError('date', __('Max 2 bookings in 30 days by member'));
+        return;
+      }
+    }
+
+    if (Holiday::where('date', $this->date)->exists()){
       $this->addError('date', __('Existing holiday'));
       return;
     }

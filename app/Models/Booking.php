@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Events\BookingNotificationEvent;
 use App\Services\BookingNeedsRevision;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -39,6 +40,12 @@ class Booking extends Model
 
     public function status(){
       return $this->belongsTo(BookingStatus::class, 'status_id');
+    }
+    #endregion
+
+    #region SCOPES
+    public function scopeNotCancelled(Builder $builder){
+      $builder->whereNot('status_id', BookingStatus::CANCELLED);
     }
     #endregion
 
